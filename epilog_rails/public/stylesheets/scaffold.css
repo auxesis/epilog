@@ -31,8 +31,12 @@ strong.highlight {
   background-color: #fff;
 }
 
-#results td {
+#results td.datetime {
   width: 80%;
+}
+
+#results td.message {
+  width: 50px;
 }
 
 body { 

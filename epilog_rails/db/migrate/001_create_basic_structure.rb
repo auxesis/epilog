@@ -7,6 +7,6 @@ class CreateBasicStructure < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :log
+    drop_table :entries
   end
 end

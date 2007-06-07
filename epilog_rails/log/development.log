@@ -9114,3 +9114,684 @@ Rendering  within layouts/entry
 Rendering entry/find
 Rendered entry/_search (0.00344)
 Completed in 0.13923 (7 reqs/sec) | Rendering: 0.01310 (9%) | DB: 0.11168 (80%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:13:27) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"h", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.192514)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%h%' OR datetime LIKE '%h%') [0m
+  [4;36;1mEntry Load (0.508035)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%h%' OR datetime LIKE '%h%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.16958)
+  [4;35;1mSQL (0.075219)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001991)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.96076 (1 reqs/sec) | Rendering: 0.17030 (17%) | DB: 0.77776 (80%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:13:28) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"hi", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.244570)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%hi%' OR datetime LIKE '%hi%') [0m
+  [4;36;1mEntry Load (0.263073)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%hi%' OR datetime LIKE '%hi%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.01619)
+  [4;35;1mSQL (0.090931)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001776)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.63078 (1 reqs/sec) | Rendering: 0.01690 (2%) | DB: 0.60035 (95%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:16:40) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry"}
+  [4;35;1mSQL (0.181810)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001801)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_search (0.00599)
+Completed in 0.20956 (4 reqs/sec) | Rendering: 0.01585 (7%) | DB: 0.18361 (87%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:16:47) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.065288)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001703)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.00992)
+  [4;35;1mSQL (0.071639)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001665)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.16259 (6 reqs/sec) | Rendering: 0.01060 (6%) | DB: 0.14030 (86%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:16:48) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"hi", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.249126)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%hi%' OR datetime LIKE '%hi%') [0m
+  [4;36;1mEntry Load (0.272831)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%hi%' OR datetime LIKE '%hi%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.02240)
+  [4;35;1mSQL (0.088833)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001581)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.65900 (1 reqs/sec) | Rendering: 0.02308 (3%) | DB: 0.61237 (92%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:17:01) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"search", "controller"=>"entry", "page"=>"2"}
+Redirected to http://localhost:3000/entry/find
+Filter chain halted as [#<ActionController::Filters::ClassMethods::ProcFilter:0xb67dc9e8 @filter=#<Proc:0xb74cf614@/usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/verification.rb:74>>] returned false.
+Completed in 0.00209 (479 reqs/sec) | 302 Found [http://localhost/entry/search?page=2]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:17:01) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry"}
+  [4;35;1mSQL (0.108632)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.002423)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_search (0.00363)
+Completed in 0.13778 (7 reqs/sec) | Rendering: 0.01091 (7%) | DB: 0.11106 (80%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:17:04) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry", "page"=>"2"}
+  [4;35;1mSQL (0.105294)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001961)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendering  within layouts/entry
+Rendering entry/find
+
+
+ActionView::TemplateError (undefined method `+' for #<ActionController::Pagination::Paginator::Page:0xb696f710>) on line #20 of app/views/entry/_search.rhtml:
+17: <% end %>
+18: </table>
+19: 
+20: <%= link_to 'Previous page', { :page => @entry_pages.current.previous + "&search=#{@search}" } if @entry_pages.current.previous %>
+21: <%= link_to 'Next page', { :page => @entry_pages.current.next } if @entry_pages.current.next %> 
+22: 
+23: </div>
+
+    #{RAILS_ROOT}/app/views/entry/_search.rhtml:20:in `_run_rhtml_47app47views47entry47_search46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `compile_and_render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:301:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:260:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:275:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/partials.rb:59:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/1.8/benchmark.rb:307:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/partials.rb:58:in `render_partial'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:287:in `render'
+    #{RAILS_ROOT}/app/views/entry/find.rhtml:9:in `_run_rhtml_47app47views47entry47find46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/capture_helper.rb:108:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/capture_helper.rb:108:in `capture_erb_with_buffer'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/capture_helper.rb:67:in `capture'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/form_tag_helper.rb:51:in `form_tag'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/prototype_helper.rb:180:in `form_remote_tag'
+    #{RAILS_ROOT}/app/views/entry/find.rhtml:2:in `_run_rhtml_47app47views47entry47find46rhtml'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:326:in `compile_and_render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:301:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/base.rb:260:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:806:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:711:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/layout.rb:247:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:50:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1096:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:634:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:168:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:143:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:109:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:142:in `process_each_request!'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:141:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:55:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:25:in `process!'
+    /home/auxesis/code/epilog/code/epilog_rails/public/dispatch.fcgi:24
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:17:33) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry", "page"=>"2"}
+  [4;35;1mSQL (0.094420)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001804)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_search (0.00801)
+Completed in 0.12583 (7 reqs/sec) | Rendering: 0.01882 (14%) | DB: 0.09622 (76%) | 200 OK [http://localhost/entry/find?page=2]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:17:36) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry"}
+  [4;35;1mSQL (0.142227)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001730)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_search (0.01154)
+Completed in 0.18983 (5 reqs/sec) | Rendering: 0.02729 (14%) | DB: 0.14396 (75%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:17:46) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"jn", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.238303)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%jn%' OR datetime LIKE '%jn%') [0m
+  [4;36;1mEntry Load (0.235844)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%jn%' OR datetime LIKE '%jn%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.00037)
+  [4;35;1mSQL (0.073890)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001645)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.57323 (1 reqs/sec) | Rendering: 0.00100 (0%) | DB: 0.54968 (95%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:17:47) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"jnu", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.243448)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%jnu%' OR datetime LIKE '%jnu%') [0m
+  [4;36;1mEntry Load (0.251629)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%jnu%' OR datetime LIKE '%jnu%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.00036)
+  [4;35;1mSQL (0.070142)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001944)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 0.59447 (1 reqs/sec) | Rendering: 0.00133 (0%) | DB: 0.56716 (95%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#search (for 127.0.0.1 at 2007-06-07 20:17:48) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"search"=>"jun", "action"=>"search", "controller"=>"entry"}
+  [4;35;1mSQL (0.233115)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%jun%' OR datetime LIKE '%jun%') [0m
+  [4;36;1mEntry Load (0.769435)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%jun%' OR datetime LIKE '%jun%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_search (0.01529)
+  [4;35;1mSQL (0.070537)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001971)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Completed in 1.10487 (0 reqs/sec) | Rendering: 0.01613 (1%) | DB: 1.07506 (97%) | 200 OK [http://localhost/entry/search]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:19:26) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry"}
+  [4;35;1mSQL (0.110639)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001963)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_search (0.01787)
+Completed in 0.15611 (6 reqs/sec) | Rendering: 0.02855 (18%) | DB: 0.11260 (72%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#find (for 127.0.0.1 at 2007-06-07 20:22:24) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"find", "controller"=>"entry"}
+  [4;35;1mSQL (0.060741)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001760)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00543)
+Completed in 0.09121 (10 reqs/sec) | Rendering: 0.01273 (13%) | DB: 0.06250 (68%) | 200 OK [http://localhost/entry/find]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:27) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"hel"}
+  [4;35;1mSQL (0.264339)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%hel%' OR datetime LIKE '%hel%') [0m
+  [4;36;1mEntry Load (0.351167)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%hel%' OR datetime LIKE '%hel%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02348)
+Completed in 0.65868 (1 reqs/sec) | Rendering: 0.02436 (3%) | DB: 0.61551 (93%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:28) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"hello"}
+  [4;35;1mSQL (0.245281)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%hello%' OR datetime LIKE '%hello%') [0m
+  [4;36;1mEntry Load (0.271185)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%hello%' OR datetime LIKE '%hello%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00612)
+Completed in 0.53481 (1 reqs/sec) | Rendering: 0.00681 (1%) | DB: 0.51647 (96%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:31) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>""}
+  [4;35;1mSQL (0.075397)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.001586)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00748)
+Completed in 0.09993 (10 reqs/sec) | Rendering: 0.00814 (8%) | DB: 0.07698 (77%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:32) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"s"}
+  [4;35;1mSQL (0.165182)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%s%' OR datetime LIKE '%s%') [0m
+  [4;36;1mEntry Load (0.638015)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%s%' OR datetime LIKE '%s%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.18074)
+Completed in 0.99803 (1 reqs/sec) | Rendering: 0.18143 (18%) | DB: 0.80320 (80%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:33) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"spo"}
+  [4;35;1mSQL (0.329671)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%spo%' OR datetime LIKE '%spo%') [0m
+  [4;36;1mEntry Load (0.277669)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%spo%' OR datetime LIKE '%spo%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02793)
+Completed in 0.66911 (1 reqs/sec) | Rendering: 0.02865 (4%) | DB: 0.60734 (90%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:34) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"spoon"}
+  [4;35;1mSQL (0.261006)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%spoon%' OR datetime LIKE '%spoon%') [0m
+  [4;36;1mEntry Load (0.260742)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%spoon%' OR datetime LIKE '%spoon%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00599)
+Completed in 0.54008 (1 reqs/sec) | Rendering: 0.00689 (1%) | DB: 0.52175 (96%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:35) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"spoons"}
+  [4;35;1mSQL (0.316040)[0m   [0mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%spoons%' OR datetime LIKE '%spoons%') [0m
+  [4;36;1mEntry Load (0.267394)[0m   [0;1mSELECT * FROM entries WHERE (message LIKE '%spoons%' OR datetime LIKE '%spoons%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00626)
+Completed in 0.60358 (1 reqs/sec) | Rendering: 0.00708 (1%) | DB: 0.58343 (96%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#show (for 127.0.0.1 at 2007-06-07 20:22:42) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"entry"}
+  [4;35;1mEntry Load (0.000392)[0m   [0mSELECT * FROM entries WHERE (entries."id" = 3) [0m
+Rendering  within layouts/entry
+Rendering entry/show
+Completed in 0.01475 (67 reqs/sec) | Rendering: 0.00438 (29%) | DB: 0.00039 (2%) | 200 OK [http://localhost/entry/show/3]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:48) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"thing"}
+  [4;36;1mSQL (0.267620)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thing%' OR datetime LIKE '%thing%') [0m
+  [4;35;1mEntry Load (0.300051)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thing%' OR datetime LIKE '%thing%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.15422)
+Completed in 0.74405 (1 reqs/sec) | Rendering: 0.15614 (20%) | DB: 0.56767 (76%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:52) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"thingor"}
+  [4;36;1mSQL (0.305001)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingor%' OR datetime LIKE '%thingor%') [0m
+  [4;35;1mEntry Load (0.347581)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingor%' OR datetime LIKE '%thingor%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.01861)
+Completed in 0.68534 (1 reqs/sec) | Rendering: 0.01933 (2%) | DB: 0.65258 (95%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:22:53) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"thingorother"}
+  [4;36;1mSQL (0.283813)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.298515)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02315)
+Completed in 0.61709 (1 reqs/sec) | Rendering: 0.02385 (3%) | DB: 0.58233 (94%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:03) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"2"}
+  [4;36;1mSQL (0.106137)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001766)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendered entry/_results (0.00521)
+Completed in 0.12458 (8 reqs/sec) | Rendering: 0.00586 (4%) | DB: 0.10790 (86%) | 200 OK [http://localhost/entry/query?page=2]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:23) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"2", "query"=>"thingorother"}
+  [4;36;1mSQL (0.423490)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.548996)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 10[0m
+Rendered entry/_results (0.01757)
+Completed in 1.00496 (0 reqs/sec) | Rendering: 0.01827 (1%) | DB: 0.97249 (96%) | 200 OK [http://localhost/entry/query?page=2&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:27) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"3", "query"=>"thingorother"}
+  [4;36;1mSQL (0.582946)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.565094)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 20[0m
+Rendered entry/_results (0.08764)
+Completed in 1.46056 (0 reqs/sec) | Rendering: 0.08843 (6%) | DB: 1.14804 (78%) | 200 OK [http://localhost/entry/query?page=3&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:32) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"10", "query"=>"thingorother"}
+  [4;36;1mSQL (0.455667)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.484448)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 90[0m
+Rendered entry/_results (0.04934)
+Completed in 1.00495 (0 reqs/sec) | Rendering: 0.05007 (4%) | DB: 0.94011 (93%) | 200 OK [http://localhost/entry/query?page=10&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:40) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"20", "query"=>"thingorother"}
+  [4;36;1mSQL (0.458129)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.472107)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 190[0m
+Rendered entry/_results (0.05833)
+Completed in 1.00422 (0 reqs/sec) | Rendering: 0.05906 (5%) | DB: 0.93024 (92%) | 200 OK [http://localhost/entry/query?page=20&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:23:45) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"1000", "query"=>"thingorother"}
+  [4;36;1mSQL (0.476091)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.469434)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.03727)
+Completed in 1.00296 (0 reqs/sec) | Rendering: 0.03797 (3%) | DB: 0.94553 (94%) | 200 OK [http://localhost/entry/query?page=1000&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:00) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"5000", "query"=>"thingorother"}
+  [4;36;1mSQL (0.477553)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.462041)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.22895)
+Completed in 1.18460 (0 reqs/sec) | Rendering: 0.22968 (19%) | DB: 0.93959 (79%) | 200 OK [http://localhost/entry/query?page=5000&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:05) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"50000", "query"=>"thingorother"}
+  [4;36;1mSQL (0.487023)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.535132)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.01838)
+Completed in 1.06878 (0 reqs/sec) | Rendering: 0.01910 (1%) | DB: 1.02215 (95%) | 200 OK [http://localhost/entry/query?page=50000&query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:09) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"500000", "query"=>"thingorother"}
+  [4;36;1mSQL (0.490223)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.483449)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02047)
+Completed in 1.01400 (0 reqs/sec) | Rendering: 0.02118 (2%) | DB: 0.97367 (96%) | 200 OK [http://localhost/entry/query?page=500000&query=thingorother]
+
+
+Processing EntryController#query&query=thingorother (for 127.0.0.1 at 2007-06-07 20:24:20) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query&query=thingorother", "controller"=>"entry"}
+
+
+ActionController::UnknownAction (No action responded to query&query=thingorother):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:634:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:168:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:143:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:109:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:142:in `process_each_request!'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:141:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:55:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:25:in `process!'
+    /home/auxesis/code/epilog/code/epilog_rails/public/dispatch.fcgi:24
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:24) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"thingorother"}
+  [4;36;1mSQL (0.478114)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') [0m
+  [4;35;1mEntry Load (0.567396)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%thingorother%' OR datetime LIKE '%thingorother%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.05432)
+Completed in 1.11413 (0 reqs/sec) | Rendering: 0.05503 (4%) | DB: 1.04551 (93%) | 200 OK [http://localhost/entry/query?query=thingorother]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:30) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"blah"}
+  [4;36;1mSQL (0.420779)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%blah%' OR datetime LIKE '%blah%') [0m
+  [4;35;1mEntry Load (0.386225)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%blah%' OR datetime LIKE '%blah%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00363)
+Completed in 0.82853 (1 reqs/sec) | Rendering: 0.00430 (0%) | DB: 0.80700 (97%) | 200 OK [http://localhost/entry/query?query=blah]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:37) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"spoons"}
+  [4;36;1mSQL (0.503110)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%spoons%' OR datetime LIKE '%spoons%') [0m
+  [4;35;1mEntry Load (0.442350)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%spoons%' OR datetime LIKE '%spoons%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00653)
+Completed in 0.97627 (1 reqs/sec) | Rendering: 0.00729 (0%) | DB: 0.94546 (96%) | 200 OK [http://localhost/entry/query?query=spoons]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:46) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"holmwood.id.au"}
+  [4;36;1mSQL (0.447253)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') [0m
+  [4;35;1mEntry Load (0.429322)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.05767)
+Completed in 0.94663 (1 reqs/sec) | Rendering: 0.05839 (6%) | DB: 0.87657 (92%) | 200 OK [http://localhost/entry/query?query=holmwood.id.au]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:24:57) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"2"}
+  [4;36;1mSQL (0.063146)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001728)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendered entry/_results (0.00518)
+Completed in 0.10697 (9 reqs/sec) | Rendering: 0.00596 (5%) | DB: 0.06487 (60%) | 200 OK [http://localhost/entry/query?page=2]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:02) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"3"}
+  [4;36;1mSQL (0.104110)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002082)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 20[0m
+Rendered entry/_results (0.00476)
+Completed in 0.12215 (8 reqs/sec) | Rendering: 0.00545 (4%) | DB: 0.10619 (86%) | 200 OK [http://localhost/entry/query?page=3]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:05) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"4"}
+  [4;36;1mSQL (0.199828)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.005987)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 30[0m
+Rendered entry/_results (0.00512)
+Completed in 0.26052 (3 reqs/sec) | Rendering: 0.00591 (2%) | DB: 0.20581 (79%) | 200 OK [http://localhost/entry/query?page=4]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:07) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"3"}
+  [4;36;1mSQL (0.113430)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001626)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 20[0m
+Rendered entry/_results (0.02814)
+Completed in 0.15840 (6 reqs/sec) | Rendering: 0.03005 (18%) | DB: 0.11506 (72%) | 200 OK [http://localhost/entry/query?page=3]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:09) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"2"}
+  [4;36;1mSQL (0.078104)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001801)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendered entry/_results (0.01913)
+Completed in 0.12627 (7 reqs/sec) | Rendering: 0.01983 (15%) | DB: 0.07991 (63%) | 200 OK [http://localhost/entry/query?page=2]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:10) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"1"}
+  [4;36;1mSQL (0.094434)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.018373)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00479)
+Completed in 0.13087 (7 reqs/sec) | Rendering: 0.00544 (4%) | DB: 0.11281 (86%) | 200 OK [http://localhost/entry/query?page=1]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:20) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"1%query=holmwood.id.au"}
+  [4;36;1mSQL (0.079319)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001718)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.00485)
+Completed in 0.10662 (9 reqs/sec) | Rendering: 0.00557 (5%) | DB: 0.08104 (76%) | 200 OK [http://localhost/entry/query?page=1%query=holmwood.id.au]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:22) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"1", "query"=>"holmwood.id.au"}
+  [4;36;1mSQL (0.392376)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') [0m
+  [4;35;1mEntry Load (0.446010)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02308)
+Completed in 0.87405 (1 reqs/sec) | Rendering: 0.02378 (2%) | DB: 0.83839 (95%) | 200 OK [http://localhost/entry/query?page=1&query=holmwood.id.au]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:25) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "page"=>"2", "query"=>"holmwood.id.au"}
+  [4;36;1mSQL (0.384519)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') [0m
+  [4;35;1mEntry Load (0.400214)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') ORDER BY datetime LIMIT 10 OFFSET 10[0m
+Rendered entry/_results (0.04341)
+Completed in 0.85196 (1 reqs/sec) | Rendering: 0.04412 (5%) | DB: 0.78473 (92%) | 200 OK [http://localhost/entry/query?page=2&query=holmwood.id.au]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:25:39) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry"}
+  [4;36;1mSQL (0.164464)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001817)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.01002)
+Completed in 0.21101 (4 reqs/sec) | Rendering: 0.03230 (15%) | DB: 0.16628 (78%) | 200 OK [http://localhost/entry/]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:44) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"holmwood"}
+  [4;36;1mSQL (0.247517)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood%' OR datetime LIKE '%holmwood%') [0m
+  [4;35;1mEntry Load (0.272175)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood%' OR datetime LIKE '%holmwood%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.02205)
+Completed in 0.55996 (1 reqs/sec) | Rendering: 0.02280 (4%) | DB: 0.51969 (92%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:53) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"holmwood.i"}
+  [4;36;1mSQL (0.264252)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood.i%' OR datetime LIKE '%holmwood.i%') [0m
+  [4;35;1mEntry Load (0.271675)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood.i%' OR datetime LIKE '%holmwood.i%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.01813)
+Completed in 0.56635 (1 reqs/sec) | Rendering: 0.01883 (3%) | DB: 0.53593 (94%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#query (for 127.0.0.1 at 2007-06-07 20:25:54) [POST]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"query", "controller"=>"entry", "query"=>"holmwood.id.au"}
+  [4;36;1mSQL (0.245870)[0m   [0;1mSELECT count(*) AS count_all FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') [0m
+  [4;35;1mEntry Load (0.240652)[0m   [0mSELECT * FROM entries WHERE (message LIKE '%holmwood.id.au%' OR datetime LIKE '%holmwood.id.au%') ORDER BY datetime LIMIT 10 OFFSET 0[0m
+Rendered entry/_results (0.01852)
+Completed in 0.51741 (1 reqs/sec) | Rendering: 0.01923 (3%) | DB: 0.48652 (94%) | 200 OK [http://localhost/entry/query]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:27:06) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry"}
+  [4;36;1mSQL (0.160253)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001601)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00345)
+Completed in 0.18977 (5 reqs/sec) | Rendering: 0.01869 (9%) | DB: 0.16185 (85%) | 200 OK [http://localhost/entry/]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:27:15) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry"}
+  [4;36;1mSQL (0.166264)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001890)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00422)
+Completed in 0.19993 (5 reqs/sec) | Rendering: 0.01568 (7%) | DB: 0.16815 (84%) | 200 OK [http://localhost/entry/]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:27:29) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry", "page"=>"2"}
+  [4;36;1mSQL (0.100084)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001797)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00406)
+Completed in 0.12570 (7 reqs/sec) | Rendering: 0.00974 (7%) | DB: 0.10188 (81%) | 200 OK [http://localhost/entry?page=2]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:28:03) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry", "page"=>"3"}
+  [4;36;1mSQL (0.123253)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001984)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 20[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00381)
+Completed in 0.15123 (6 reqs/sec) | Rendering: 0.01544 (10%) | DB: 0.12524 (82%) | 200 OK [http://localhost/entry?page=3]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:28:05) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry", "page"=>"4"}
+  [4;36;1mSQL (0.222880)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001775)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 30[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00354)
+Completed in 0.26227 (3 reqs/sec) | Rendering: 0.00905 (3%) | DB: 0.22466 (85%) | 200 OK [http://localhost/entry?page=4]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-07 20:28:08) [GET]
+  Session ID: 59ae2a44e071088e2c547d3e6ba661fa
+  Parameters: {"action"=>"index", "controller"=>"entry", "page"=>"5"}
+  [4;36;1mSQL (0.107934)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001711)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 40[0m
+Rendering actionfindlayoutfalse within layouts/entry
+Rendering entry/find
+Rendered entry/_results (0.00367)
+Completed in 0.18716 (5 reqs/sec) | Rendering: 0.06748 (36%) | DB: 0.10964 (58%) | 200 OK [http://localhost/entry?page=5]
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000534)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000315)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateQueryStore (2)
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000524)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000319)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateQueryStore (2)
+  [4;36;1mSQL (0.174899)[0m   [0;1mCREATE TABLE queries ("id" INTEGER PRIMARY KEY NOT NULL, "parameters" varchar(255) DEFAULT NULL) [0m
+  [4;35;1mSQL (0.005179)[0m   [0mUPDATE schema_info SET version = 2[0m
+  [4;36;1mSQL (0.000482)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000478)[0m   [0mSELECT name FROM sqlite_master WHERE type = 'table'[0m
+  [4;36;1mSQL (0.000113)[0m   [0;1mPRAGMA index_list(entries)[0m
+  [4;35;1mSQL (0.000134)[0m   [0mPRAGMA index_list(queries)[0m

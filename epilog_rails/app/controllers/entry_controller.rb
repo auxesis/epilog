@@ -20,20 +20,29 @@ class EntryController < ApplicationController
     @entry_pages, @entries = paginate :entries, :per_page => 10
   end
 
-  def search
-    unless params[:search].blank?
+  def query
+
+    unless params[:query].blank?
       @entry_pages, @entries = paginate :entries,
         :per_page       => 10,
         :order          => 'datetime',
-        :conditions     => Entry.conditions_by_like(params[:search])
-      @search = params[:search]
+        :conditions     => Entry.conditions_by_like(params[:query])
+
+      @query = params[:query]
+      query_store @query
+
     else
       list
     end
 
-    render :partial => 'search', :layout => false
-    find
+    render :partial => 'results', :layout => false
+#    find
 
+  end
+
+  def query_store query
+    Query.new = query
+    Query.save
   end
 
 
