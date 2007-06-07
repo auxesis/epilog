@@ -1,0 +1,1310 @@
+  [4;36;1mSQL (0.007254)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002336)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000523)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateBasicStructure (1)
+  [4;36;1mSQL (0.003751)[0m   [0;1mCREATE TABLE log ("id" INTEGER PRIMARY KEY NOT NULL, "message" varchar(255) DEFAULT NULL, "datetime" varchar(255) DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002427)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000596)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000443)[0m   [0mSELECT name FROM sqlite_master WHERE type = 'table'[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mPRAGMA index_list(log)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000551)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000690)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000493)[0m   [0;1mSELECT name FROM sqlite_master WHERE type = 'table'[0m
+  [4;35;1mSQL (0.000124)[0m   [0mPRAGMA index_list(log)[0m
+  [4;36;1mSQL (0.007420)[0m   [0;1mCREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.002513)[0m   [0mINSERT INTO schema_info (version) VALUES(0)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.000531)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateBasicStructure (1)
+  [4;36;1mSQL (0.003441)[0m   [0;1mCREATE TABLE entries ("id" INTEGER PRIMARY KEY NOT NULL, "message" varchar(255) DEFAULT NULL, "datetime" varchar(255) DEFAULT NULL) [0m
+  [4;35;1mSQL (0.002306)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000506)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000409)[0m   [0mSELECT name FROM sqlite_master WHERE type = 'table'[0m
+  [4;36;1mSQL (0.000158)[0m   [0;1mPRAGMA index_list(entries)[0m
+
+
+Processing InfoController#properties (for 127.0.0.1 at 2007-06-06 14:49:30) [GET]
+  Session ID: d26921c57193199701480b5ef257725a
+  Parameters: {"action"=>"properties", "controller"=>"rails/info"}
+  [4;36;1mSQL (0.001042)[0m   [0;1mSELECT version FROM schema_info[0m
+Completed in 0.24712 (4 reqs/sec) | Rendering: 0.00166 (0%) | DB: 0.00104 (0%) | 200 OK [http://localhost/rails/info/properties]
+
+
+Processing EntryController#index (for 127.0.0.1 at 2007-06-06 14:50:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"index", "controller"=>"entry"}
+  [4;35;1mSQL (0.033139)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.000589)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering actionlistlayoutfalse within layouts/entry
+Rendering entry/list
+Completed in 0.09673 (10 reqs/sec) | Rendering: 0.03683 (38%) | DB: 0.03373 (34%) | 200 OK [http://localhost/entry]
+
+
+Processing EntryController#new (for 127.0.0.1 at 2007-06-06 14:50:16) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"new", "controller"=>"entry"}
+Rendering  within layouts/entry
+Rendering entry/new
+Rendered entry/_form (0.00214)
+Completed in 0.05854 (17 reqs/sec) | Rendering: 0.05013 (85%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entry/new]
+
+
+Processing EntryController#create (for 127.0.0.1 at 2007-06-06 14:50:24) [POST]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"commit"=>"Create", "action"=>"create", "controller"=>"entry", "entry"=>{"message"=>"hello", "datetime"=>"world"}}
+  [4;35;1mSQL (0.032336)[0m   [0mINSERT INTO entries ("message", "datetime") VALUES('hello', 'world')[0m
+Redirected to http://localhost:3000/entry/list
+Completed in 0.05869 (17 reqs/sec) | DB: 0.03234 (55%) | 302 Found [http://localhost/entry/create]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 14:50:24) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000674)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000487)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01455 (68 reqs/sec) | Rendering: 0.00387 (26%) | DB: 0.00116 (7%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#new (for 127.0.0.1 at 2007-06-06 14:50:27) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"new", "controller"=>"entry"}
+Rendering  within layouts/entry
+Rendering entry/new
+Rendered entry/_form (0.00072)
+Completed in 0.01218 (82 reqs/sec) | Rendering: 0.00412 (33%) | DB: 0.00000 (0%) | 200 OK [http://localhost/entry/new]
+
+
+Processing EntryController#create (for 127.0.0.1 at 2007-06-06 14:50:31) [POST]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"commit"=>"Create", "action"=>"create", "controller"=>"entry", "entry"=>{"message"=>"spoons", "datetime"=>"blah"}}
+  [4;36;1mSQL (0.000365)[0m   [0;1mINSERT INTO entries ("message", "datetime") VALUES('spoons', 'blah')[0m
+Redirected to http://localhost:3000/entry/list
+Completed in 0.02241 (44 reqs/sec) | DB: 0.00037 (1%) | 302 Found [http://localhost/entry/create]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 14:50:31) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;35;1mSQL (0.000354)[0m   [0mSELECT count(*) AS count_all FROM entries [0m
+  [4;36;1mEntry Load (0.000546)[0m   [0;1mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.04887 (20 reqs/sec) | Rendering: 0.03778 (77%) | DB: 0.00090 (1%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 14:57:11) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000455)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000523)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16915 (5 reqs/sec) | Rendering: 0.11884 (70%) | DB: 0.00098 (0%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 14:59:53) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000416)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000636)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01588 (62 reqs/sec) | Rendering: 0.00545 (34%) | DB: 0.00105 (6%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 15:00:06) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000342)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000735)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01661 (60 reqs/sec) | Rendering: 0.00670 (40%) | DB: 0.00108 (6%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 15:11:44) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000330)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000810)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01745 (57 reqs/sec) | Rendering: 0.00663 (38%) | DB: 0.00114 (6%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 15:54:11) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000344)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000869)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.04818 (20 reqs/sec) | Rendering: 0.03797 (78%) | DB: 0.00121 (2%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 15:54:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000337)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000805)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01923 (51 reqs/sec) | Rendering: 0.00674 (35%) | DB: 0.00114 (5%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:03:06) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000353)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000927)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01867 (53 reqs/sec) | Rendering: 0.00750 (40%) | DB: 0.00128 (6%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:03:09) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000718)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001480)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02833 (35 reqs/sec) | Rendering: 0.00683 (24%) | DB: 0.00220 (7%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:03:11) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000388)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.000829)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.01777 (56 reqs/sec) | Rendering: 0.00734 (41%) | DB: 0.00122 (6%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:19) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry"}
+  [4;36;1mSQL (0.000500)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001436)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.30103 (3 reqs/sec) | Rendering: 0.24751 (82%) | DB: 0.00194 (0%) | 200 OK [http://localhost/entry/list]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:26) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"2"}
+  [4;36;1mSQL (0.000481)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001455)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 10[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02294 (43 reqs/sec) | Rendering: 0.01103 (48%) | DB: 0.00194 (8%) | 200 OK [http://localhost/entry/list?page=2]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:28) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"3"}
+  [4;36;1mSQL (0.000437)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001990)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 20[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02291 (43 reqs/sec) | Rendering: 0.01137 (49%) | DB: 0.00243 (10%) | 200 OK [http://localhost/entry/list?page=3]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:30) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4"}
+  [4;36;1mSQL (0.000710)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001500)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 30[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05901 (16 reqs/sec) | Rendering: 0.02759 (46%) | DB: 0.00221 (3%) | 200 OK [http://localhost/entry/list?page=4]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:32) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5"}
+  [4;36;1mSQL (0.000490)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001644)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 40[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05537 (18 reqs/sec) | Rendering: 0.02621 (47%) | DB: 0.00213 (3%) | 200 OK [http://localhost/entry/list?page=5]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:35) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6"}
+
+
+SQLite3::BusyException (database is locked):
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/errors.rb:94:in `check'
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/statement.rb:71:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/database.rb:184:in `new'
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/database.rb:184:in `prepare'
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/database.rb:232:in `execute2'
+    /usr/lib/ruby/gems/1.8/gems/sqlite3-ruby-1.2.1/lib/sqlite3/pragmas.rb:249:in `table_info'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/sqlite_adapter.rb:359:in `table_structure'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/connection_adapters/sqlite_adapter.rb:210:in `columns'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/base.rb:763:in `columns'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/calculations.rb:257:in `column_for'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/calculations.rb:116:in `calculate'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.15.3/lib/active_record/calculations.rb:45:in `count'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/pagination.rb:173:in `count_collection_for_pagination'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/pagination.rb:197:in `paginator_and_collection_for'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/pagination.rb:130:in `paginate'
+    /app/controllers/entry_controller.rb:12:in `list'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:1095:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:632:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:634:in `call_filter'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:619:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/benchmarking.rb:66:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/rescue.rb:83:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:430:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/filters.rb:624:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/session_management.rb:114:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/base.rb:330:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:41:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:168:in `process_request'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:143:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:109:in `with_signal_handler'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:142:in `process_each_request!'
+    /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+    /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:141:in `process_each_request!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:55:in `process!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:25:in `process!'
+    /home/auxesis/code/projectl/code/log_test/public/dispatch.fcgi:24
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:39) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5"}
+  [4;36;1mSQL (0.000640)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001456)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 40[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.06414 (15 reqs/sec) | Rendering: 0.03229 (50%) | DB: 0.00210 (3%) | 200 OK [http://localhost/entry/list?page=5]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:40) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6"}
+  [4;36;1mSQL (0.000543)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001725)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 50[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05504 (18 reqs/sec) | Rendering: 0.02595 (47%) | DB: 0.00227 (4%) | 200 OK [http://localhost/entry/list?page=6]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:46) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"7"}
+  [4;36;1mSQL (0.000620)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001401)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 60[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02288 (43 reqs/sec) | Rendering: 0.01199 (52%) | DB: 0.00202 (8%) | 200 OK [http://localhost/entry/list?page=7]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:48) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"8"}
+  [4;36;1mSQL (0.000641)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001485)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 70[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02341 (42 reqs/sec) | Rendering: 0.01192 (50%) | DB: 0.00213 (9%) | 200 OK [http://localhost/entry/list?page=8]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:50) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"9"}
+  [4;36;1mSQL (0.000637)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002304)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 80[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02408 (41 reqs/sec) | Rendering: 0.01125 (46%) | DB: 0.00294 (12%) | 200 OK [http://localhost/entry/list?page=9]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:51) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"10"}
+  [4;36;1mSQL (0.000661)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001495)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 90[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02274 (43 reqs/sec) | Rendering: 0.01135 (49%) | DB: 0.00216 (9%) | 200 OK [http://localhost/entry/list?page=10]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:56) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"11"}
+  [4;36;1mSQL (0.000625)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001498)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 100[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02189 (45 reqs/sec) | Rendering: 0.01091 (49%) | DB: 0.00212 (9%) | 200 OK [http://localhost/entry/list?page=11]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:15:58) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"12"}
+  [4;36;1mSQL (0.000620)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.013308)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 110[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05265 (18 reqs/sec) | Rendering: 0.01915 (36%) | DB: 0.01393 (26%) | 200 OK [http://localhost/entry/list?page=12]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:16:00) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"13"}
+  [4;36;1mSQL (0.000615)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001498)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 120[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.21103 (4 reqs/sec) | Rendering: 0.19699 (93%) | DB: 0.00211 (1%) | 200 OK [http://localhost/entry/list?page=13]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:16:02) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"14"}
+  [4;36;1mSQL (0.000639)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002617)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 130[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.02472 (40 reqs/sec) | Rendering: 0.01154 (46%) | DB: 0.00326 (13%) | 200 OK [http://localhost/entry/list?page=14]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:16:03) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"15"}
+  [4;36;1mSQL (0.000632)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.011436)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 140[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05200 (19 reqs/sec) | Rendering: 0.02365 (45%) | DB: 0.01207 (23%) | 200 OK [http://localhost/entry/list?page=15]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:16:06) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"16"}
+  [4;36;1mSQL (0.000621)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001761)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 150[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.05708 (17 reqs/sec) | Rendering: 0.02593 (45%) | DB: 0.00238 (4%) | 200 OK [http://localhost/entry/list?page=16]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:18:39) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"17"}
+  [4;36;1mSQL (0.000694)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001546)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 160[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.04799 (20 reqs/sec) | Rendering: 0.02467 (51%) | DB: 0.00224 (4%) | 200 OK [http://localhost/entry/list?page=17]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:18:40) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"18"}
+  [4;36;1mSQL (0.000750)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001506)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 170[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.20873 (4 reqs/sec) | Rendering: 0.19709 (94%) | DB: 0.00226 (1%) | 200 OK [http://localhost/entry/list?page=18]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 16:18:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"19"}
+  [4;36;1mSQL (0.000720)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001577)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 180[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.04801 (20 reqs/sec) | Rendering: 0.03548 (73%) | DB: 0.00230 (4%) | 200 OK [http://localhost/entry/list?page=19]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:26) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"19"}
+  [4;36;1mSQL (0.124675)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001801)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 180[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.15160 (6 reqs/sec) | Rendering: 0.01499 (9%) | DB: 0.12648 (83%) | 200 OK [http://localhost/entry/list?page=19]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:29) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"20"}
+  [4;36;1mSQL (0.045650)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001804)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 190[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.07033 (14 reqs/sec) | Rendering: 0.01096 (15%) | DB: 0.04745 (67%) | 200 OK [http://localhost/entry/list?page=20]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:30) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"21"}
+  [4;36;1mSQL (0.068425)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001757)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 200[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.12163 (8 reqs/sec) | Rendering: 0.04107 (33%) | DB: 0.07018 (57%) | 200 OK [http://localhost/entry/list?page=21]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:32) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"22"}
+  [4;36;1mSQL (0.119446)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001754)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 210[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.27601 (3 reqs/sec) | Rendering: 0.14468 (52%) | DB: 0.12120 (43%) | 200 OK [http://localhost/entry/list?page=22]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:33) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"23"}
+  [4;36;1mSQL (0.062418)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.009373)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 220[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13911 (7 reqs/sec) | Rendering: 0.04619 (33%) | DB: 0.07179 (51%) | 200 OK [http://localhost/entry/list?page=23]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:36) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"50"}
+  [4;36;1mSQL (0.092594)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002104)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 490[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.12538 (7 reqs/sec) | Rendering: 0.01237 (9%) | DB: 0.09470 (75%) | 200 OK [http://localhost/entry/list?page=50]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:39) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"100"}
+  [4;36;1mSQL (0.139436)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.008465)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18095 (5 reqs/sec) | Rendering: 0.02332 (12%) | DB: 0.14790 (81%) | 200 OK [http://localhost/entry/list?page=100]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"150"}
+  [4;36;1mSQL (0.110405)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002976)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 1490[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.14787 (6 reqs/sec) | Rendering: 0.01216 (8%) | DB: 0.11338 (76%) | 200 OK [http://localhost/entry/list?page=150]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:46) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"200"}
+  [4;36;1mSQL (0.083841)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.004942)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 1990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.30535 (3 reqs/sec) | Rendering: 0.01162 (3%) | DB: 0.08878 (29%) | 200 OK [http://localhost/entry/list?page=200]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:49) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"500"}
+  [4;36;1mSQL (0.046636)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.007399)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 4990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09624 (10 reqs/sec) | Rendering: 0.03010 (31%) | DB: 0.05403 (56%) | 200 OK [http://localhost/entry/list?page=500]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:53) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"1000"}
+  [4;36;1mSQL (0.049383)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.013681)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 9990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08615 (11 reqs/sec) | Rendering: 0.01161 (13%) | DB: 0.06306 (73%) | 200 OK [http://localhost/entry/list?page=1000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:56) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"2000"}
+  [4;36;1mSQL (0.130471)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.043358)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 19990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.19705 (5 reqs/sec) | Rendering: 0.01318 (6%) | DB: 0.17383 (88%) | 200 OK [http://localhost/entry/list?page=2000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:15:59) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4000"}
+  [4;36;1mSQL (0.135442)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.074809)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 39990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.24036 (4 reqs/sec) | Rendering: 0.01197 (4%) | DB: 0.21025 (87%) | 200 OK [http://localhost/entry/list?page=4000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:04) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"16000"}
+  [4;36;1mSQL (0.047177)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.005347)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.32380 (3 reqs/sec) | Rendering: 0.01227 (3%) | DB: 0.05252 (16%) | 200 OK [http://localhost/entry/list?page=16000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:15) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"8000"}
+  [4;36;1mSQL (0.076899)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001779)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.10584 (9 reqs/sec) | Rendering: 0.01113 (10%) | DB: 0.07868 (74%) | 200 OK [http://localhost/entry/list?page=8000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:18) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"7000"}
+  [4;36;1mSQL (0.164768)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.018539)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.21580 (4 reqs/sec) | Rendering: 0.02315 (10%) | DB: 0.18331 (84%) | 200 OK [http://localhost/entry/list?page=7000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:21) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6000"}
+  [4;36;1mSQL (0.085128)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001735)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11951 (8 reqs/sec) | Rendering: 0.01075 (8%) | DB: 0.08686 (72%) | 200 OK [http://localhost/entry/list?page=6000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:24) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4000"}
+  [4;36;1mSQL (0.050924)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.221204)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 39990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.30128 (3 reqs/sec) | Rendering: 0.01858 (6%) | DB: 0.27213 (90%) | 200 OK [http://localhost/entry/list?page=4000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:26) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.066020)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001666)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.40603 (2 reqs/sec) | Rendering: 0.01236 (3%) | DB: 0.06769 (16%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:30) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4500"}
+  [4;36;1mSQL (0.051032)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001621)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.07480 (13 reqs/sec) | Rendering: 0.01234 (16%) | DB: 0.05265 (70%) | 200 OK [http://localhost/entry/list?page=4500]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:34) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4200"}
+  [4;36;1mSQL (0.047734)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.046215)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 41990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11563 (8 reqs/sec) | Rendering: 0.01155 (9%) | DB: 0.09395 (81%) | 200 OK [http://localhost/entry/list?page=4200]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:36) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4300"}
+  [4;36;1mSQL (0.044734)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.123088)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 42990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.21463 (4 reqs/sec) | Rendering: 0.02474 (11%) | DB: 0.16782 (78%) | 200 OK [http://localhost/entry/list?page=4300]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:38) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4400"}
+  [4;36;1mSQL (0.105628)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002116)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18583 (5 reqs/sec) | Rendering: 0.01056 (5%) | DB: 0.10774 (57%) | 200 OK [http://localhost/entry/list?page=4400]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4350"}
+  [4;36;1mSQL (0.047245)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.047804)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43490[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.27483 (3 reqs/sec) | Rendering: 0.01183 (4%) | DB: 0.09505 (34%) | 200 OK [http://localhost/entry/list?page=4350]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:45) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4370"}
+  [4;36;1mSQL (0.045120)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.148129)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43690[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.22202 (4 reqs/sec) | Rendering: 0.01746 (7%) | DB: 0.19325 (87%) | 200 OK [http://localhost/entry/list?page=4370]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:49) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4380"}
+  [4;36;1mSQL (0.087485)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001859)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11885 (8 reqs/sec) | Rendering: 0.01161 (9%) | DB: 0.08934 (75%) | 200 OK [http://localhost/entry/list?page=4380]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:52) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4370"}
+  [4;36;1mSQL (0.128859)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.070250)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43690[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.22066 (4 reqs/sec) | Rendering: 0.01101 (4%) | DB: 0.19911 (90%) | 200 OK [http://localhost/entry/list?page=4370]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:53) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4375"}
+  [4;36;1mSQL (0.144380)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001647)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16990 (5 reqs/sec) | Rendering: 0.01166 (6%) | DB: 0.14603 (85%) | 200 OK [http://localhost/entry/list?page=4375]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:55) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4374"}
+  [4;36;1mSQL (0.046904)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001660)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09150 (10 reqs/sec) | Rendering: 0.02574 (28%) | DB: 0.04856 (53%) | 200 OK [http://localhost/entry/list?page=4374]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:57) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4373"}
+  [4;36;1mSQL (0.089834)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001624)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13032 (7 reqs/sec) | Rendering: 0.01210 (9%) | DB: 0.09146 (70%) | 200 OK [http://localhost/entry/list?page=4373]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:58) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4372"}
+  [4;36;1mSQL (0.113995)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002607)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16228 (6 reqs/sec) | Rendering: 0.03518 (21%) | DB: 0.11660 (71%) | 200 OK [http://localhost/entry/list?page=4372]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:16:59) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4371"}
+  [4;36;1mSQL (0.081438)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.045696)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43700[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16510 (6 reqs/sec) | Rendering: 0.01071 (6%) | DB: 0.12713 (77%) | 200 OK [http://localhost/entry/list?page=4371]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:17:11) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4371"}
+  [4;36;1mSQL (0.076439)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.047290)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43700[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.15756 (6 reqs/sec) | Rendering: 0.01000 (6%) | DB: 0.12373 (78%) | 200 OK [http://localhost/entry/list?page=4371]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:17:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4371"}
+  [4;36;1mSQL (0.051142)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.062679)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43700[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13709 (7 reqs/sec) | Rendering: 0.01162 (8%) | DB: 0.11382 (83%) | 200 OK [http://localhost/entry/list?page=4371]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:17:54) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4380"}
+  [4;36;1mSQL (0.164514)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.074945)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43790[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.31968 (3 reqs/sec) | Rendering: 0.01217 (3%) | DB: 0.23946 (74%) | 200 OK [http://localhost/entry/list?page=4380]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:17:56) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4390"}
+  [4;36;1mSQL (0.106640)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.105024)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43890[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.23874 (4 reqs/sec) | Rendering: 0.01702 (7%) | DB: 0.21166 (88%) | 200 OK [http://localhost/entry/list?page=4390]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:17:59) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"4400"}
+  [4;36;1mSQL (0.058472)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.143495)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 43990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.23978 (4 reqs/sec) | Rendering: 0.02858 (11%) | DB: 0.20197 (84%) | 200 OK [http://localhost/entry/list?page=4400]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:18:02) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6000"}
+  [4;36;1mSQL (0.046624)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001568)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.06959 (14 reqs/sec) | Rendering: 0.01072 (15%) | DB: 0.04819 (69%) | 200 OK [http://localhost/entry/list?page=6000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:18:07) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.058147)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001667)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08205 (12 reqs/sec) | Rendering: 0.01209 (14%) | DB: 0.05981 (72%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:18:09) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.117449)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.010753)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16868 (5 reqs/sec) | Rendering: 0.02030 (12%) | DB: 0.12820 (76%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:18:34) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.113346)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002524)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13859 (7 reqs/sec) | Rendering: 0.01078 (7%) | DB: 0.11587 (83%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:18:35) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.050832)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.017799)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09953 (10 reqs/sec) | Rendering: 0.01173 (11%) | DB: 0.06863 (68%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:19:24) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.122840)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001573)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16325 (6 reqs/sec) | Rendering: 0.01631 (9%) | DB: 0.12441 (76%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:19:26) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.046767)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001830)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08968 (11 reqs/sec) | Rendering: 0.02559 (28%) | DB: 0.04860 (54%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:19:55) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.047589)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001680)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08890 (11 reqs/sec) | Rendering: 0.02964 (33%) | DB: 0.04927 (55%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:49) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.144690)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001571)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.20864 (4 reqs/sec) | Rendering: 0.05264 (25%) | DB: 0.14626 (70%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:50) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.136341)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001599)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18517 (5 reqs/sec) | Rendering: 0.01917 (10%) | DB: 0.13794 (74%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:50) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.125840)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001525)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.20767 (4 reqs/sec) | Rendering: 0.06185 (29%) | DB: 0.12736 (61%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:51) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.046437)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001669)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08758 (11 reqs/sec) | Rendering: 0.02494 (28%) | DB: 0.04811 (54%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:51) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.075797)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001675)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09991 (10 reqs/sec) | Rendering: 0.01252 (12%) | DB: 0.07747 (77%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:51) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.101082)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001589)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.12345 (8 reqs/sec) | Rendering: 0.01174 (9%) | DB: 0.10267 (83%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:23:51) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.095449)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001711)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11862 (8 reqs/sec) | Rendering: 0.01140 (9%) | DB: 0.09716 (81%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:12) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.104551)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001827)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13183 (7 reqs/sec) | Rendering: 0.01625 (12%) | DB: 0.10638 (80%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:12) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.116232)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001659)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.15721 (6 reqs/sec) | Rendering: 0.02289 (14%) | DB: 0.11789 (74%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.098327)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.010651)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.14693 (6 reqs/sec) | Rendering: 0.02826 (19%) | DB: 0.10898 (74%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.124229)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001636)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16803 (5 reqs/sec) | Rendering: 0.01722 (10%) | DB: 0.12586 (74%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.145619)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001597)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18920 (5 reqs/sec) | Rendering: 0.01664 (8%) | DB: 0.14722 (77%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:13) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.063226)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.015436)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09848 (10 reqs/sec) | Rendering: 0.01058 (10%) | DB: 0.07866 (79%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:14) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.047705)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001841)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08419 (11 reqs/sec) | Rendering: 0.02412 (28%) | DB: 0.04955 (58%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:14) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.246042)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001650)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.27107 (3 reqs/sec) | Rendering: 0.01297 (4%) | DB: 0.24769 (91%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:14) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.078431)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.002651)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.10267 (9 reqs/sec) | Rendering: 0.01107 (10%) | DB: 0.08108 (78%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:14) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.072546)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001552)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09533 (10 reqs/sec) | Rendering: 0.01113 (11%) | DB: 0.07410 (77%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:24) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.077064)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001949)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11261 (8 reqs/sec) | Rendering: 0.01087 (9%) | DB: 0.07901 (70%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:25) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.051395)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001944)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.09082 (11 reqs/sec) | Rendering: 0.02665 (29%) | DB: 0.05334 (58%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:26) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.066824)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.006752)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.12428 (8 reqs/sec) | Rendering: 0.04044 (32%) | DB: 0.07358 (59%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:27) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.123687)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.006794)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16730 (5 reqs/sec) | Rendering: 0.01525 (9%) | DB: 0.13048 (77%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:28) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.089280)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.007646)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13471 (7 reqs/sec) | Rendering: 0.02579 (19%) | DB: 0.09693 (71%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:31) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.128602)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001723)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.15012 (6 reqs/sec) | Rendering: 0.01076 (7%) | DB: 0.13033 (86%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:32) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.049209)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001678)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08726 (11 reqs/sec) | Rendering: 0.02529 (28%) | DB: 0.05089 (58%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:33) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.051025)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001647)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08699 (11 reqs/sec) | Rendering: 0.02443 (28%) | DB: 0.05267 (60%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.106536)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.005891)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.14256 (7 reqs/sec) | Rendering: 0.01046 (7%) | DB: 0.11243 (78%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.086329)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.012123)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.13132 (7 reqs/sec) | Rendering: 0.02361 (17%) | DB: 0.09845 (74%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:24:42) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.047277)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001763)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.08934 (11 reqs/sec) | Rendering: 0.03066 (34%) | DB: 0.04904 (54%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-06 17:38:46) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (0.096574)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.059770)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 49990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18674 (5 reqs/sec) | Rendering: 0.01157 (6%) | DB: 0.15634 (83%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:02) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"5000"}
+  [4;36;1mSQL (1.548789)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.056811)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 49990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 1.98916 (0 reqs/sec) | Rendering: 0.04171 (2%) | DB: 1.60560 (80%) | 200 OK [http://localhost/entry/list?page=5000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:04) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6000"}
+  [4;36;1mSQL (0.092594)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.067777)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 59990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18310 (5 reqs/sec) | Rendering: 0.01104 (6%) | DB: 0.16037 (87%) | 200 OK [http://localhost/entry/list?page=6000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:09) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"7000"}
+  [4;36;1mSQL (0.066677)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001569)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.10929 (9 reqs/sec) | Rendering: 0.03090 (28%) | DB: 0.06825 (62%) | 200 OK [http://localhost/entry/list?page=7000]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:12) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6500"}
+  [4;36;1mSQL (0.063641)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001557)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.11283 (8 reqs/sec) | Rendering: 0.01129 (10%) | DB: 0.06520 (57%) | 200 OK [http://localhost/entry/list?page=6500]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:15) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6200"}
+  [4;36;1mSQL (0.082072)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.071772)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 61990[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.17778 (5 reqs/sec) | Rendering: 0.01157 (6%) | DB: 0.15384 (86%) | 200 OK [http://localhost/entry/list?page=6200]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:17) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6300"}
+  [4;36;1mSQL (0.112519)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.001664)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.14349 (6 reqs/sec) | Rendering: 0.01163 (8%) | DB: 0.11418 (79%) | 200 OK [http://localhost/entry/list?page=6300]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:20) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6250"}
+  [4;36;1mSQL (0.142299)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.006635)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 0[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.18282 (5 reqs/sec) | Rendering: 0.02371 (12%) | DB: 0.14893 (81%) | 200 OK [http://localhost/entry/list?page=6250]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:24) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6225"}
+  [4;36;1mSQL (0.144362)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.071669)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62240[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.24171 (4 reqs/sec) | Rendering: 0.01194 (4%) | DB: 0.21603 (89%) | 200 OK [http://localhost/entry/list?page=6225]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:27) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6240"}
+  [4;36;1mSQL (0.134510)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.080407)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62390[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.24385 (4 reqs/sec) | Rendering: 0.01147 (4%) | DB: 0.21492 (88%) | 200 OK [http://localhost/entry/list?page=6240]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:31) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6241"}
+  [4;36;1mSQL (0.068912)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.066353)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62400[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.15741 (6 reqs/sec) | Rendering: 0.01147 (7%) | DB: 0.13526 (85%) | 200 OK [http://localhost/entry/list?page=6241]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:33) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6242"}
+  [4;36;1mSQL (0.062558)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.116131)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62410[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.20022 (4 reqs/sec) | Rendering: 0.01195 (5%) | DB: 0.17869 (89%) | 200 OK [http://localhost/entry/list?page=6242]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:39:35) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6243"}
+  [4;36;1mSQL (0.063771)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.119304)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62420[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.19849 (5 reqs/sec) | Rendering: 0.00519 (2%) | DB: 0.18307 (92%) | 200 OK [http://localhost/entry/list?page=6243]
+
+
+Processing EntryController#list (for 127.0.0.1 at 2007-06-07 09:52:56) [GET]
+  Session ID: 86d93f3a364705adaf775aa8b87ea42c
+  Parameters: {"action"=>"list", "controller"=>"entry", "page"=>"6243"}
+  [4;36;1mSQL (0.081237)[0m   [0;1mSELECT count(*) AS count_all FROM entries [0m
+  [4;35;1mEntry Load (0.068529)[0m   [0mSELECT * FROM entries LIMIT 10 OFFSET 62420[0m
+Rendering  within layouts/entry
+Rendering entry/list
+Completed in 0.16688 (5 reqs/sec) | Rendering: 0.00538 (3%) | DB: 0.14977 (89%) | 200 OK [http://localhost/entry/list?page=6243]
