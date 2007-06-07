@@ -1,4 +1,44 @@
-body { background-color: #fff; color: #333; }
+
+#querier {
+  width: 60%;
+  padding: 9px;
+  margin: 0px auto 0px auto;
+/*  border: 1px solid #ccc;
+  background-color: #fff; */
+}
+
+#querier input {
+  border: 1px solid #ccc;
+  padding: 3px;
+  margin: 20px auto 20px auto;
+}
+
+#querier h1 {
+  color: #000;
+}
+
+strong.highlight { 
+  background-color: #ffff7a; 
+  font-weight: normal;
+
+}
+
+#results { 
+  width: 90%;
+  border: 1px solid #ccc;
+  margin: 20px auto 20px auto;
+  padding: 15px;
+  background-color: #fff;
+}
+
+#results td {
+  width: 80%;
+}
+
+body { 
+  background-color: #fff; color: #333;
+  background: #fff url('/images/bg.png') repeat-x;
+ }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -71,4 +111,5 @@ div.progressBar div.background {
   height: 18px;
   width: 0%;
 }
+
 

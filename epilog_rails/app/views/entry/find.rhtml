@@ -1,0 +1,22 @@
+
+<% form_remote_tag :url => url_for(:action => "search") do %>
+  <div id="querier">
+    <%= image_tag('epilog-logo.png') %> 
+    <%= text_field 'search', 'search', 'value' => @search  %>
+  </div>
+
+  <div id='ajaxWrapper'>
+    <%= render :partial => 'search' %>
+  </div>
+
+  <%= observe_field :search_search,
+                    :frequency  => 0.9,
+                    :update     => 'ajaxWrapper',
+                    :before     => "Element.show('spinner')",
+                    :complete   => "Element.hide('spinner')",
+                    :url        => {:action=>'search', :only_path => false},
+                    :with      => "'search=' + encodeURIComponent(value)" 
+  %>
+
+  
+<% end %>

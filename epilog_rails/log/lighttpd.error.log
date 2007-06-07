@@ -7,3 +7,15 @@
 2007-06-06 16:06:14: (log.c.75) server started 
 2007-06-07 09:54:46: (server.c.1239) [note] graceful shutdown started 
 2007-06-07 09:54:46: (log.c.135) server stopped 
+2007-06-07 10:29:50: (log.c.75) server started 
+2007-06-07 11:24:55: (server.c.1239) [note] graceful shutdown started 
+2007-06-07 11:24:55: (log.c.135) server stopped 
+2007-06-07 11:25:05: (log.c.75) server started 
+2007-06-07 12:00:52: (log.c.135) server stopped 
+2007-06-07 12:01:27: (log.c.75) server started 
+2007-06-07 12:41:04: (server.c.1239) [note] graceful shutdown started 
+2007-06-07 12:41:04: (log.c.135) server stopped 
+2007-06-07 12:41:08: (log.c.75) server started 
+2007-06-07 15:20:40: (server.c.1239) [note] graceful shutdown started 
+2007-06-07 15:20:40: (log.c.135) server stopped 
+2007-06-07 15:20:46: (log.c.75) server started 

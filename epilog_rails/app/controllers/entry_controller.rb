@@ -1,12 +1,12 @@
 class EntryController < ApplicationController
   def index
-    list
-    render :action => 'list'
+    find
+    render :action => 'find'
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update ],
-         :redirect_to => { :action => :list }
+  verify :method => :post, :only => [ :destroy, :create, :update, :search ],
+         :redirect_to => { :action => :find }
 
   def list
     @entry_pages, @entries = paginate :entries, :per_page => 10
@@ -15,6 +15,29 @@ class EntryController < ApplicationController
   def show
     @entry = Entry.find(params[:id])
   end
+
+  def find
+    @entry_pages, @entries = paginate :entries, :per_page => 10
+  end
+
+  def search
+    unless params[:search].blank?
+      @entry_pages, @entries = paginate :entries,
+        :per_page       => 10,
+        :order          => 'datetime',
+        :conditions     => Entry.conditions_by_like(params[:search])
+      @search = params[:search]
+    else
+      list
+    end
+
+    render :partial => 'search', :layout => false
+    find
+
+  end
+
+
+  # everything below here is probably going to go :-)
 
   def new
     @entry = Entry.new
