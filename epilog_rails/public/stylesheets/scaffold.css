@@ -5,17 +5,23 @@
   margin: 0px auto 0px auto;
 /*  border: 1px solid #ccc;
   background-color: #fff; */
+  text-align: center;
 }
 
 #querier input {
   border: 1px solid #ccc;
   padding: 3px;
   margin: 20px auto 20px auto;
+  vertical-align: middle;
 }
 
-#querier h1 {
-  color: #000;
+#querier img {
+  vertical-align: middle;
+/*  border: 3px solid red;
+  color: #000; */
 }
+
+
 
 strong.highlight { 
   background-color: #ffff7a; 
@@ -26,9 +32,13 @@ strong.highlight {
 #results { 
   width: 90%;
   border: 1px solid #ccc;
-  margin: 20px auto 20px auto;
+  margin: 5px auto 20px auto;
   padding: 15px;
   background-color: #fff;
+}
+
+#results td {
+  width: 80%;
 }
 
 #results td.datetime {

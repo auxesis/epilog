@@ -1,4 +1,5 @@
 <div id="results">
+
 <table>
   <tr>
   <% for column in Entry.content_columns %>
@@ -9,15 +10,21 @@
 <% for entry in @entries %>
   <tr>
   <% for column in Entry.content_columns %>
-  <!--<td><% excerpt(entry.send(column.name), @query, 60 ) %></td>-->
-  <td><%= highlight(entry.send(column.name), @query, highlighter='<strong class="highlight">\1</strong>') %></td>
+  <td>
+    <% if @query then %>
+      <%= highlight(entry.send(column.name), @query, highlighter='<strong class="highlight">\1</strong>') %>
+    <% else %>
+      <%= truncate(entry.send(column.name), 90) %>
+    <% end %>
+  </td>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => entry %></td>
+  <td><%= link_to_function 'Show', "Element.show('show')" %> </td>
   </tr>
 <% end %>
 </table>
 
+</div>
+
 <%= link_to 'Previous page', { :page => @entry_pages.current.previous } if @entry_pages.current.previous %>
 <%= link_to 'Next page', { :page => @entry_pages.current.next } if @entry_pages.current.next %> 
 
-</div>

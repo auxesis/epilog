@@ -36,6 +36,12 @@ end
 
 # let's begin
 
+if ARGV.length < 1 then
+  puts "Usage: aggregator.rb <logfile>"
+  exit
+end
+
+
 config = get_config
 connect_to_database(config)
 

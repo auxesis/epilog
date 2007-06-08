@@ -5,7 +5,7 @@ class EntryController < ApplicationController
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :search ],
+  verify :method => :post, :only => [ :destroy, :create, :update, :query ],
          :redirect_to => { :action => :find }
 
   def list
@@ -22,17 +22,23 @@ class EntryController < ApplicationController
 
   def query
 
-    unless params[:query].blank?
-      @entry_pages, @entries = paginate :entries,
-        :per_page       => 10,
-        :order          => 'datetime',
-        :conditions     => Entry.conditions_by_like(params[:query])
+    begin 
+      unless params[:query].blank?
+        @entry_pages, @entries = paginate :entries,
+          :per_page       => 20,
+          :order          => 'datetime',
+          :conditions     => Entry.conditions_by_like(params[:query])
 
-      @query = params[:query]
-      query_store @query
+        @query = params[:query]
+#       self.query_store @query
 
-    else
-      list
+      else
+        list
+      end
+    rescue SQLite3::BusyException, ActiveRecord::StatementInvalid
+      flash[:notice] = 'The database is getting choked up, just wait a second. :-)'
+      sleep 2
+      retry
     end
 
     render :partial => 'results', :layout => false

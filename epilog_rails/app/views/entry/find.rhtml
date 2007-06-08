@@ -1,16 +1,17 @@
 
 <% form_remote_tag :url => url_for(:action => "query") do %>
-  <div id="querier">
-    <%= image_tag('epilog-logo.png') %> 
-    <%= text_field 'query', 'query', 'value' => @query  %>
-  </div>
+<div id="querier">
+ <%= image_tag 'epilog-logo.png' %>
+ <%= text_field 'query', 'query', 'value' => @query  %>
+ <%= image_tag 'spinner.gif', :id => 'spinner', :style => "display: none;" %>
+</div>
 
   <div id='ajaxWrapper'>
-    <%= render :partial => 'results' %>
+      <%= render :partial => 'results' %>
   </div>
 
   <%= observe_field :query_query,
-                    :frequency  => 0.9,
+                    :frequency  => 0.5,
                     :update     => 'ajaxWrapper',
                     :before     => "Element.show('spinner')",
                     :complete   => "Element.hide('spinner')",
