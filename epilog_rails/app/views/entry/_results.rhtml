@@ -10,15 +10,18 @@
 <% for entry in @entries %>
   <tr>
   <% for column in Entry.content_columns %>
-  <td>
-    <% if @query then %>
-      <%= highlight(entry.send(column.name), @query, highlighter='<strong class="highlight">\1</strong>') %>
-    <% else %>
-      <%= truncate(entry.send(column.name), 90) %>
-    <% end %>
-  </td>
+    <td>
+      <%= render :partial => 'results_highlight', :locals => { :entry => entry, :column => column } %>
+    </td>
   <% end %>
-  <td><%= link_to_function 'Show', "Element.show('show')" %> </td>
+
+  <div id="test" style="display: none;">
+    spoons
+  </div>
+
+  <td><%= link_to_function "Show", "Effect.toggle('test', 'slide')" %>
+  </td>
+    
   </tr>
 <% end %>
 </table>

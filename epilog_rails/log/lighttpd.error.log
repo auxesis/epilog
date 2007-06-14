@@ -23,3 +23,21 @@
 2007-06-07 20:43:45: (log.c.135) server stopped 
 2007-06-07 20:43:53: (log.c.75) server started 
 2007-06-08 23:22:20: (log.c.75) server started 
+2007-06-09 00:36:05: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+/home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+ 
+2007-06-09 00:36:05: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-09 00:36:20: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+/home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+ 
+2007-06-09 00:36:20: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-09 00:37:20: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+/home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:21: warning: parenthesize argument(s) for future version
+ 
+2007-06-09 00:37:20: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-09 12:22:49: (server.c.1239) [note] graceful shutdown started 
+2007-06-09 12:22:49: (log.c.135) server stopped 
+2007-06-12 14:15:28: (log.c.75) server started 
+2007-06-12 14:17:39: (server.c.1239) [note] graceful shutdown started 
+2007-06-12 14:17:39: (log.c.135) server stopped 
+2007-06-14 14:32:19: (log.c.75) server started 
