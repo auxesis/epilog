@@ -43,6 +43,7 @@ strong.highlight {
 
 #results td.datetime {
   width: 80%;
+  text-align: center;
 }
 
 #results td.message {

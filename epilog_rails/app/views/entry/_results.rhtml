@@ -2,22 +2,18 @@
 
 <table>
   <tr>
-  <% for column in Entry.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
+    <th>Message</th>
+    <th>Timestamp</th>
   </tr>
   
 <% for entry in @entries %>
   <tr>
-  <% for column in Entry.content_columns %>
-    <td>
-      <%= render :partial => 'results_highlight', :locals => { :entry => entry, :column => column } %>
+    <td id="message">
+      <%= highlight_or_truncate(entry.message, @query) %>
     </td>
-  <% end %>
-
-  <div id="test" style="display: none;">
-    spoons
-  </div>
+    <td id="datetime">
+      <%= highlight_or_truncate(entry.datetime, @query) %>
+    </td>
 
   <td><%= link_to_function "Show", "Effect.toggle('test', 'slide')" %>
   </td>

@@ -41,3 +41,119 @@
 2007-06-12 14:17:39: (server.c.1239) [note] graceful shutdown started 
 2007-06-12 14:17:39: (log.c.135) server stopped 
 2007-06-14 14:32:19: (log.c.75) server started 
+2007-06-14 14:54:59: (server.c.1239) [note] graceful shutdown started 
+2007-06-14 14:54:59: (log.c.135) server stopped 
+2007-06-14 14:55:02: (log.c.75) server started 
+2007-06-14 16:26:14: (server.c.1239) [note] graceful shutdown started 
+2007-06-14 16:26:14: (log.c.135) server stopped 
+2007-06-14 16:30:35: (log.c.75) server started 
+2007-06-14 17:49:51: (server.c.1239) [note] graceful shutdown started 
+2007-06-14 17:49:51: (log.c.135) server stopped 
+2007-06-18 14:32:30: (log.c.75) server started 
+2007-06-18 17:24:45: (server.c.1239) [note] graceful shutdown started 
+2007-06-18 17:24:45: (log.c.135) server stopped 
+2007-06-25 10:02:55: (log.c.75) server started 
+2007-06-25 13:13:26: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:13:26: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:14:17: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:14:17: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:14:51: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:14:51: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:15:14: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:15:14: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:15:29: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:15:29: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:15:37: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:15:37: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:15:53: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:15:53: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:15:53: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:15:53: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:02: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:02: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:04: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:04: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:06: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:06: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:07: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:07: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:27: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:27: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:30: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:30: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:16:31: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:16:31: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:18:01: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:18:01: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:18:03: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:18:03: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:18:12: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:18:12: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:18:54: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:18:54: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:19:09: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:19:09: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:19:36: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:19:36: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:20:11: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:20:11: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:21:05: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:21:05: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:21:14: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:21:14: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:21:22: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:21:22: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:21:33: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:21:33: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:32:16: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:32:16: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:32:28: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:32:28: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:32:39: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:32:39: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:32:54: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:32:54: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:33:14: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:33:14: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:33:16: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: found = in conditional, should be ==
+ 
+2007-06-25 13:33:16: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 13:33:22: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:3: warning: parenthesize argument(s) for future version
+ 
+2007-06-25 13:33:22: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-25 15:46:26: (server.c.1239) [note] graceful shutdown started 
+2007-06-25 15:46:26: (log.c.135) server stopped 
+2007-06-25 15:46:32: (log.c.75) server started 
+2007-06-25 15:47:23: (server.c.1239) [note] graceful shutdown started 
+2007-06-25 15:47:23: (log.c.135) server stopped 

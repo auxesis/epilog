@@ -17,7 +17,12 @@ class EntryController < ApplicationController
   end
 
   def find
+    if params[:id] then
+      @query = params[:id]
+    end
+
     @entry_pages, @entries = paginate :entries, :per_page => 10
+
   end
 
   def query

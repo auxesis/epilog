@@ -6,8 +6,20 @@
 
 require 'active_record'
 require 'yaml'
+require 'md5'
+require 'term/ansicolor'
 
 class Entry < ActiveRecord::Base; end
+
+class Color
+  class << self
+    include Term::ANSIColor
+  end
+end
+
+class String
+  include Term::ANSIColor
+end
 
 def get_config
   db_config = YAML::load(File.open('database.yml'))
@@ -22,62 +34,76 @@ def connect_to_database(config)
   end
 end
 
-def log_to_database(message, datetime)
-  begin
-    log = Entry.new("message" => message, "datetime" => datetime)
-    log.save
-  rescue SQLite3::BusyException
-    sleep 2
-    puts 'db contention!'
-    retry
+def log_to_database(message, datetime, digest, filename)
+  if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
+    puts "Entry #{digest} already exists!".yellow
+  else
+    begin
+      log = Entry.new("message" => message, "datetime" => datetime, "digest" => digest, "filename" => filename)
+      log.save
+    rescue SQLite3::BusyException
+      sleep 2
+      puts 'Database contention! Retrying.'.red
+      retry
+    end
   end
+end
 
+def watch(filename, interval)
+
+  @file_contents = File.open(filename).readlines
+  @file_state = File.stat(filename)
+
+  basename = filename.split.pop
+
+  while true do 
+    @current_file_state = File.stat(filename)
+
+    if @current_file_state != @file_state then
+      puts "#{filename.split.pop} has changed.".green
+      @current_file_contents = File.open(filename).readlines
+
+      lines = @current_file_contents - @file_contents
+
+      lines.each do |line|
+        datetime = line[0..15]
+        message = line[16..-1]
+        digest = MD5.hexdigest(line)
+
+        log_to_database(message, datetime, digest, basename)
+
+      end
+    
+     @file_state = @current_file_state
+     @file_contents = @current_file_contents
+
+   else 
+     puts "#{filename.split.pop} hasn't changed.".blue
+   end
+
+  sleep interval
+  end
 end
 
 # let's begin
 
 if ARGV.length < 1 then
-  puts "Usage: aggregator.rb <logfile>"
-  exit
+  puts "Usage: aggregator.rb <file> [interval]"
+  exit 1
 end
 
+filename = ARGV[0]
+
+if ARGV[1] then
+  interval = ARGV[1].to_i
+else 
+  interval = 2
+end
 
 config = get_config
 connect_to_database(config)
 
-logfile = ARGV[0]
+watch(filename, interval)
 
-@time = 1
-
-@file_contents = File.open(logfile).readlines
-@file_state = File.stat(logfile)
-
-while true do 
-  @current_file_state = File.stat(logfile)
-
-  if @current_file_state != @file_state then
-    puts "file has changed"
-    @current_file_contents = File.open(logfile).readlines
-
-    lines = @file_contents & @current_file_contents
-
-    lines.each do |line|
-      datetime = line[0..15]
-      message = line[16..-1]
-
-      log_to_database(message, datetime)
-
-    end
-    
-    @file_state = @current_file_state
-    @file_contents = @current_file_contents
-
-  else 
-    puts "file hasn't changed"
-  end
-
-
-  sleep @time
-end
 
 

@@ -7,6 +7,7 @@
 
 if ARGV.length < 1
   puts "Usage: logfeeder.rb <input>"
+  exit 1
 end
 
 File.open(ARGV[0]) do |file|
@@ -14,7 +15,7 @@ File.open(ARGV[0]) do |file|
     lines.each do |line|
       $stdout.write line
       $stdout.flush
-      sleep rand * 10
+      sleep rand # * 2 
     end
 end
 

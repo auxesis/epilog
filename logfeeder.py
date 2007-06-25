@@ -16,5 +16,5 @@ lines = file(sys.argv[1]).readlines()
 for line in lines:
   print line.strip()
   sys.stdout.flush()
-  time.sleep(random.random() * 5)
+  time.sleep(random.random() * 3)
 
