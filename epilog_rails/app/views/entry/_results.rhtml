@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Message</th>
-    <th>Timestamp</th>
+    <th style="80%">Message</th>
+    <th style="20%">Timestamp</th>
   </tr>
   
 <% for entry in @entries %>
@@ -12,11 +12,14 @@
       <%= highlight_or_truncate(entry.message, @query) %>
     </td>
     <td id="datetime">
-      <%= highlight_or_truncate(entry.datetime, @query) %>
+      <% highlight_or_truncate(entry.datetime, @query) %>
+      <%= entry.datetime %>
     </td>
 
-  <td><%= link_to_function "Show", "Effect.toggle('test', 'slide')" %>
-  </td>
+    <td>
+      <% link_to_function "Show", "Effect.toggle('test', 'slide')" %>
+      <%= link_to "Show" %>
+    </td>
     
   </tr>
 <% end %>
@@ -24,6 +27,8 @@
 
 </div>
 
-<%= link_to 'Previous page', { :page => @entry_pages.current.previous } if @entry_pages.current.previous %>
-<%= link_to 'Next page', { :page => @entry_pages.current.next } if @entry_pages.current.next %> 
+<%=# link_to 'Previous page', { :page => @entry_pages.current.previous } if @entry_pages.current.previous 
+%>
+<%=# link_to 'Next page', { :page => @entry_pages.current.next } if @entry_pages.current.next 
+%> 
 

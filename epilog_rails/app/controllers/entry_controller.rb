@@ -27,24 +27,23 @@ class EntryController < ApplicationController
 
   def query
 
-    begin 
-      unless params[:query].blank?
-        @entry_pages, @entries = paginate :entries,
-          :per_page       => 20,
-          :order          => 'datetime',
-          :conditions     => Entry.conditions_by_like(params[:query])
+    @entries = Entry.find_by_contents(params[:query])
+
+#    begin 
+#      unless params[:query].blank?
+#        @entry_pages, @entries = paginate :entries,
+#          :per_page       => 20,
+#          :order          => 'datetime',
+#          :conditions     => Entry.find_by_contents(params[:query])
+#          :conditions     => Entry.find_by_contents("lindsay")
 
         @query = params[:query]
 #       self.query_store @query
 
-      else
-        list
-      end
-    rescue SQLite3::BusyException, ActiveRecord::StatementInvalid
-      flash[:notice] = 'The database is getting choked up, just wait a second. :-)'
-      sleep 2
-      retry
-    end
+#      else
+#        list
+#      end
+#    end
 
     render :partial => 'results', :layout => false
 #    find

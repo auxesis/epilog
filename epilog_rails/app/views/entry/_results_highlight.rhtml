@@ -1,6 +1,0 @@
-<% if @query then %>
-  <%= highlight(h(entry.send(column.name)), @query, highlighter='<strong class="highlight">\1</strong>') %>
-<% else %>
-  <%= truncate(h(entry.send(column.name)), 90) %>
-<% end %>
-

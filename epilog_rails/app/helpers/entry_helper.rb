@@ -1,9 +1,11 @@
 module EntryHelper
   def highlight_or_truncate(content, query)
+    content=h(content)
     if query.nil? then
-      truncate(h(content), 90)
+      truncate(content, 90)
     else
-      highlight(h(content), @query, highlighter='<strong class="highlight">\1</strong>')
+       text=highlight(content, query, highlighter='<strong class="highlight">\1</strong>')
+       excerpt(text, query, 200)
     end
   end
 

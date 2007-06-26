@@ -157,3 +157,31 @@
 2007-06-25 15:46:32: (log.c.75) server started 
 2007-06-25 15:47:23: (server.c.1239) [note] graceful shutdown started 
 2007-06-25 15:47:23: (log.c.135) server stopped 
+2007-06-25 16:18:54: (log.c.75) server started 
+2007-06-26 14:03:29: (mod_fastcgi.c.1718) connect failed: No such file or directory on unix:/home/auxesis/code/epilog/code/epilog_rails/tmp/sockets/fcgi.socket-0 
+2007-06-26 14:03:29: (mod_fastcgi.c.2830) backend died, we disable it for a 5 seconds and send the request to another backend instead: reconnects: 0 load: 1 
+2007-06-26 14:03:29: (mod_fastcgi.c.2603) child signaled: 9 
+2007-06-26 15:58:15: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 15:58:15: (log.c.135) server stopped 
+2007-06-26 15:58:18: (log.c.75) server started 
+2007-06-26 15:59:25: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 15:59:25: (log.c.135) server stopped 
+2007-06-26 15:59:28: (log.c.75) server started 
+2007-06-26 16:02:09: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:02:10: (log.c.135) server stopped 
+2007-06-26 16:02:13: (log.c.75) server started 
+2007-06-26 16:02:56: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:02:57: (log.c.135) server stopped 
+2007-06-26 16:11:18: (log.c.75) server started 
+2007-06-26 16:14:47: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:14:47: (log.c.135) server stopped 
+2007-06-26 16:14:50: (log.c.75) server started 
+2007-06-26 16:15:28: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:15:28: (log.c.135) server stopped 
+2007-06-26 16:15:31: (log.c.75) server started 
+2007-06-26 16:16:11: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:16:11: (log.c.135) server stopped 
+2007-06-26 16:16:13: (log.c.75) server started 
+2007-06-26 16:18:17: (server.c.1239) [note] graceful shutdown started 
+2007-06-26 16:18:17: (log.c.135) server stopped 
+2007-06-26 16:18:20: (log.c.75) server started 

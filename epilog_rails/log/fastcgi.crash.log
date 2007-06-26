@@ -51,3 +51,67 @@
 [25/Jun/2007:15:46:35 :: 27390] starting
 [25/Jun/2007:15:47:23 :: 27390] asked to terminate immediately
 [25/Jun/2007:15:47:23 :: 27390] terminated by explicit exit
+[25/Jun/2007:16:18:57 :: 8015] starting
+[26/Jun/2007:14:03:32 :: 21319] starting
+[26/Jun/2007:15:58:15 :: 21319] asked to terminate immediately
+[26/Jun/2007:15:58:15 :: 21319] terminated by explicit exit
+[26/Jun/2007:15:58:21 :: 2041] starting
+[26/Jun/2007:15:59:25 :: 2041] asked to terminate immediately
+[26/Jun/2007:15:59:25 :: 2041] asked to terminate immediately
+[26/Jun/2007:15:59:25 :: 2041] terminated by explicit exit
+[26/Jun/2007:15:59:29 :: 2176] starting
+[26/Jun/2007:16:02:09 :: 2176] asked to terminate immediately
+[26/Jun/2007:16:02:11 :: 2176] asked to terminate immediately
+[26/Jun/2007:16:02:11 :: 2176] terminated by explicit exit
+[26/Jun/2007:16:02:16 :: 2574] starting
+[26/Jun/2007:16:02:56 :: 2574] asked to terminate immediately
+[26/Jun/2007:16:02:58 :: 2574] asked to terminate immediately
+[26/Jun/2007:16:02:58 :: 2574] asked to terminate immediately
+[26/Jun/2007:16:02:58 :: 2574] asked to terminate immediately
+[26/Jun/2007:16:11:20 :: 4778] starting
+[26/Jun/2007:16:14:47 :: 4778] asked to terminate immediately
+[26/Jun/2007:16:14:47 :: 4778] asked to terminate immediately
+[26/Jun/2007:16:14:47 :: 4778] asked to terminate immediately
+[26/Jun/2007:16:14:48 :: 4778] asked to terminate immediately
+[26/Jun/2007:16:14:52 :: 5156] starting
+[26/Jun/2007:16:15:28 :: 5156] asked to terminate immediately
+[26/Jun/2007:16:15:29 :: 5156] asked to terminate immediately
+[26/Jun/2007:16:15:29 :: 5156] asked to terminate immediately
+[26/Jun/2007:16:15:29 :: 5156] asked to terminate immediately
+[26/Jun/2007:16:15:33 :: 5235] starting
+[26/Jun/2007:16:16:11 :: 5235] asked to terminate immediately
+[26/Jun/2007:16:16:11 :: 5235] asked to terminate immediately
+[26/Jun/2007:16:16:11 :: 5235] asked to terminate immediately
+[26/Jun/2007:16:16:11 :: 5235] Dispatcher failed to catch: exit (SystemExit)
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:116:in `exit'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:116:in `exit_now_handler'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/inflector.rb:250:in `to_proc'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/core_ext/module/inclusion.rb:4:in `call'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/core_ext/module/inclusion.rb:4:in `included_in_classes'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/core_ext/module/inclusion.rb:4:in `each_object'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/core_ext/module/inclusion.rb:4:in `included_in_classes'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/reloadable.rb:28:in `reloadable_classes_without_deprecation'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/deprecation.rb:44:in `silence'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/reloadable.rb:27:in `reloadable_classes_without_deprecation'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/deprecation.rb:94:in `reloadable_classes'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:62:in `reset_application!'
+  /usr/lib/ruby/gems/1.8/gems/activesupport-1.4.2/lib/active_support/deprecation.rb:44:in `silence'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:61:in `reset_application!'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:116:in `reset_after_dispatch'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/dispatcher.rb:51:in `dispatch'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:168:in `process_request'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:143:in `process_each_request!'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:109:in `with_signal_handler'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:142:in `process_each_request!'
+  /usr/lib/ruby/1.8/fcgi.rb:612:in `each_cgi'
+  /usr/lib/ruby/1.8/fcgi.rb:609:in `each'
+  /usr/lib/ruby/1.8/fcgi.rb:609:in `each_cgi'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:141:in `process_each_request!'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:55:in `process!'
+  /usr/lib/ruby/gems/1.8/gems/rails-1.2.3/lib/fcgi_handler.rb:25:in `process!'
+  /home/auxesis/code/epilog/code/epilog_rails/public/dispatch.fcgi:24
+
+[26/Jun/2007:16:16:15 :: 5318] starting
+[26/Jun/2007:16:18:17 :: 5318] asked to terminate immediately
+[26/Jun/2007:16:18:17 :: 5318] terminated by explicit exit
+[26/Jun/2007:16:18:22 :: 5542] starting

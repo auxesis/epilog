@@ -3,6 +3,11 @@
 # aggregator.rb
 # reads log files and pops them into a database
 #
+# Doesn't do any fancy transformations of the data. The raw lines
+# (and all extra spaces) are inserted verbatim. An md5sum of the 
+# intact line is used as a unique identifier of the line so 
+# duplicates are handled "nicer". 
+#
 
 require 'active_record'
 require 'yaml'

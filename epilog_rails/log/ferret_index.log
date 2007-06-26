@@ -1,0 +1,639 @@
+# Logfile created on Tue Jun 26 15:58:23 +1000 2007 by logger.rb/1.5.2.9
+rebuild index: []
+reindexing model Entry
+reindex model Entry : 0.00% complete : 74.96 secs to finish
+reindex model Entry : 12.64% complete : 69.34 secs to finish
+reindex model Entry : 25.27% complete : 64.56 secs to finish
+reindex model Entry : 37.91% complete : 54.61 secs to finish
+reindex model Entry : 50.54% complete : 52.08 secs to finish
+reindex model Entry : 63.18% complete : 38.44 secs to finish
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lin message:lin
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:he
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+rebuild index: []
+reindexing model Entry
+reindex model Entry : 0.00% complete : 0.00 secs to finish
+Created Ferret index in: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../index/development/entry
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:world message:world
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: datetime:lindsay message:lindsay
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel~ message:hel~
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:thi message:thi
+stored_fields: 
+query: datetime:thingy message:thingy
+stored_fields: 
+query: datetime:t message:t
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:man message:man
+stored_fields: 
+query: datetime:many message:many
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:fff message:fff
+stored_fields: 
+query: datetime:ff message:ff
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:spo message:spo
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:wo message:wo
+stored_fields: 
+query: datetime:worl message:worl
+stored_fields: 
+query: datetime:world message:world
+stored_fields: 
+query: datetime:worl message:worl
+stored_fields: 
+query: datetime:worl~ message:worl~
+stored_fields: 
+query: datetime:worl message:worl
+stored_fields: 
+query: datetime:worl~ message:worl~
+stored_fields: 
+query: datetime:worl message:worl
+stored_fields: 
+query: datetime:w message:w
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hello~ message:hello~
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
