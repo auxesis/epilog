@@ -58,6 +58,11 @@ strong.highlight {
   width: 50px;
 }
 
+#results.stats {
+  width: 100%
+  background-color: #ccc;
+}
+
 body { 
   background-color: #fff; color: #333;
   background: #fff url('/images/bg.png') repeat-x;

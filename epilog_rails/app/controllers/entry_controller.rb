@@ -17,9 +17,9 @@ class EntryController < ApplicationController
   end
 
   def find
-#    if params[:id] then
-#      @query = params[:id]
-#    end
+    if params[:id] then
+      @query = params[:id]
+    end
 
     @entry_pages, @entries = paginate :entries, :per_page => 10
 
@@ -34,22 +34,6 @@ class EntryController < ApplicationController
       list
     end
     
-    #render :partial => 'results', :layout => false
-
-#        @entry_pages, @entries = paginate :entries,
-#          :per_page       => 20,
-#          :order          => 'datetime',
-#          :conditions     => Entry.find_by_contents(params[:query])
-#          :conditions     => Entry.find_by_contents("lindsay")
-
-        @query = params[:query]
-#       self.query_store @query
-
-#      else
-#        list
-#      end
-#    end
-
     render :partial => 'results', :layout => false
 
   end

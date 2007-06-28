@@ -1,22 +1,23 @@
 <% image_tag 'spinner.gif', :id => 'sp' %>
 
 <% form_remote_tag :url => url_for(:action => "query") do %>
+
 <div id="querier">
  <%= image_tag 'epilog-logo.png' %>
- <%= text_field 'query', 'query', 'value' => @query  %>
+ <%= text_field 'query', 'query', 'value' => @query, :id => 'query' %>
 </div>
 
 <div id='ajax'>
   <%= render :partial => 'results' %>
 </div>
 
-  <%= observe_field :query_query,
-                    :frequency  => 1,
-                    :update     => 'ajax',
-                    #:before     => "Element.show('spinner')",
-                    #:complete   => "Element.hide('spinner')",
-                    :url        => {:action=>'query', :only_path => false},
-                    :with      => "'query=' + encodeURIComponent(value)" 
-  %>
+<%= observe_field :query, #dodgy hack until the text field sorts itself out
+                  :frequency  => 1,
+                  :update     => 'ajax',
+                  #:before     => "Element.show('spinner')",
+                  #:complete   => "Element.hide('spinner')",
+                  :url        => {:action=>'query', :only_path => false},
+                  :with      => "'query=' + encodeURIComponent(value)" 
+%>
 
 <% end %>

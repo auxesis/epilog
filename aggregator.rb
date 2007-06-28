@@ -59,8 +59,8 @@ def commit_and_index(message, datetime, digest, filename)
     puts "Entry #{digest} already exists!".yellow
   else
     begin
-      log = Entry.new("message" => message, "datetime" => datetime, "digest" => digest, "filename" => filename)
-      log.save
+      entry = Entry.new("message" => message, "datetime" => datetime, "digest" => digest, "filename" => filename)
+      entry.save
     rescue SQLite3::BusyException
       sleep 2
       puts 'Database contention! Retrying.'.red
@@ -69,7 +69,8 @@ def commit_and_index(message, datetime, digest, filename)
   end
 
   # index the data 
-  @index << {:message => message, :datetime => datetime}
+  @index << { :message => entry.message, :datetime => entry.datetime, :id => entry.id }
+  puts entry.message
 
 end
 
