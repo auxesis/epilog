@@ -17,9 +17,9 @@ class EntryController < ApplicationController
   end
 
   def find
-    if params[:id] then
-      @query = params[:id]
-    end
+#    if params[:id] then
+#      @query = params[:id]
+#    end
 
     @entry_pages, @entries = paginate :entries, :per_page => 10
 
@@ -28,9 +28,14 @@ class EntryController < ApplicationController
   def query
 
     @entries = Entry.find_by_contents(params[:query])
+    @query = params[:query]
 
-#    begin 
-#      unless params[:query].blank?
+    if params[:query].blank?
+      list
+    end
+    
+    #render :partial => 'results', :layout => false
+
 #        @entry_pages, @entries = paginate :entries,
 #          :per_page       => 20,
 #          :order          => 'datetime',
@@ -46,14 +51,15 @@ class EntryController < ApplicationController
 #    end
 
     render :partial => 'results', :layout => false
-#    find
 
   end
 
-  def query_store query
-    Query.new = query
-    Query.save
-  end
+
+  # lets just disable this for now. 
+  #def query_store query
+  #  Query.new = query
+  #  Query.save
+  #end
 
 
   # everything below here is probably going to go :-)

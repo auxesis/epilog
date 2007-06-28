@@ -1,6 +1,6 @@
-#sp {
+img.spinner {
   float: right;
-  /*display: none; */
+/*  display: none;*/ 
   background: #fff;
   width: 16px;
   height: 16px;

@@ -895,3 +895,73 @@ query: datetime:con message:con
 stored_fields: 
 query: 
 stored_fields: 
+query: 
+stored_fields: 
+query: query
+stored_fields: 
+query: datetime:blah message:blah
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime:helo message:helo
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:world message:world
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:wor message:wor
+stored_fields: 
+query: datetime:world message:world
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: 
+stored_fields: 

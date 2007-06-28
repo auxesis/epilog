@@ -1,3 +1,3 @@
-index
-epilog_rails/index/*
-./index
+*.log
+epilog_rails/index
+epilog_rails/tmp

@@ -1,6 +1,4 @@
-<div id='spinner'>
-  <%= image_tag 'spinner.gif', :id => 'sp' %>
-</div>
+<% image_tag 'spinner.gif', :id => 'sp' %>
 
 <% form_remote_tag :url => url_for(:action => "query") do %>
 <div id="querier">
@@ -8,18 +6,17 @@
  <%= text_field 'query', 'query', 'value' => @query  %>
 </div>
 
-  <div id='ajaxWrapper'>
-      <%= render :partial => 'results' %>
-  </div>
+<div id='ajax'>
+  <%= render :partial => 'results' %>
+</div>
 
   <%= observe_field :query_query,
-                    :frequency  => 0.5,
-                    :update     => 'ajaxWrapper',
-                    :before     => "Element.show('sp')",
-                    :complete   => "Element.hide('sp')",
+                    :frequency  => 1,
+                    :update     => 'ajax',
+                    #:before     => "Element.show('spinner')",
+                    #:complete   => "Element.hide('spinner')",
                     :url        => {:action=>'query', :only_path => false},
                     :with      => "'query=' + encodeURIComponent(value)" 
   %>
 
-  
 <% end %>
