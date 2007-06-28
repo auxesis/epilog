@@ -1,5 +1,5 @@
 <div id='spinner'>
-  <%= image_tag 'spinner.gif', :id => 'spinner', :style => "display: none;" %>
+  <%= image_tag 'spinner.gif', :id => 'sp' %>
 </div>
 
 <% form_remote_tag :url => url_for(:action => "query") do %>
@@ -15,8 +15,8 @@
   <%= observe_field :query_query,
                     :frequency  => 0.5,
                     :update     => 'ajaxWrapper',
-                    :before     => "Element.show('spinner')",
-                    :complete   => "Element.hide('spinner')",
+                    :before     => "Element.show('sp')",
+                    :complete   => "Element.hide('sp')",
                     :url        => {:action=>'query', :only_path => false},
                     :with      => "'query=' + encodeURIComponent(value)" 
   %>

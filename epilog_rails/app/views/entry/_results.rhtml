@@ -9,7 +9,8 @@
 <% for entry in @entries %>
   <tr>
     <td id="message">
-      <%= highlight_or_truncate(entry.message, @query) %>
+      <% highlight_or_truncate(entry.message, @query) %>
+      <%= entry.message %>
     </td>
     <td id="datetime">
       <% highlight_or_truncate(entry.datetime, @query) %>

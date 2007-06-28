@@ -1,7 +1,10 @@
-#spinner {
+#sp {
   float: right;
- /* display: none; */
+  /*display: none; */
   background: #fff;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #000;
 }
 
 #querier {

@@ -8,11 +8,16 @@
 # intact line is used as a unique identifier of the line so 
 # duplicates are handled "nicer". 
 #
+# The data is also indexed by ferret.
+#
 
 require 'active_record'
 require 'yaml'
 require 'md5'
 require 'term/ansicolor'
+require 'fileutils'
+require 'ferret'
+include Ferret
 
 class Entry < ActiveRecord::Base; end
 
@@ -26,20 +31,30 @@ class String
   include Term::ANSIColor
 end
 
-def get_config
+def get_database_config
   db_config = YAML::load(File.open('database.yml'))
 end
 
 def connect_to_database(config)
   begin 
     ActiveRecord::Base.configurations = config
-    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations['development'])
+    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
   rescue
     puts "Problem connecting to database!"
   end
 end
 
-def log_to_database(message, datetime, digest, filename)
+def setup_index(path='index')
+
+  FileUtils.mkdir_p(path) if not File.exists? path
+  raise "Directory #{path} isn't writable!" if not File.writable? path
+
+  @index = Index::Index.new(:path => path)
+end
+
+def commit_and_index(message, datetime, digest, filename)
+
+  # commit the data to the db
   if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
     puts "Entry #{digest} already exists!".yellow
   else
@@ -52,6 +67,10 @@ def log_to_database(message, datetime, digest, filename)
       retry
     end
   end
+
+  # index the data 
+  @index << {:message => message, :datetime => datetime}
+
 end
 
 def watch(filename, interval)
@@ -66,16 +85,16 @@ def watch(filename, interval)
 
     if @current_file_state != @file_state then
       puts "#{filename.split.pop} has changed.".green
-      @current_file_contents = File.open(filename).readlines
 
-      lines = @current_file_contents - @file_contents
+      @current_file_contents = File.open(filename).readlines
+      lines = @current_file_contents - @file_contents # dodgy hack, probably doesn't work in the real world
 
       lines.each do |line|
         datetime = line[0..15]
         message = line[16..-1]
         digest = MD5.hexdigest(line)
 
-        log_to_database(message, datetime, digest, basename)
+        commit_and_index(message, datetime, digest, basename)
 
       end
     
@@ -105,10 +124,12 @@ else
   interval = 2
 end
 
-config = get_config
+# temporary hack for setting the database and index environment
+@environment = 'development'
+
+config = get_database_config
 connect_to_database(config)
+setup_index("epilog_rails/index/#{@environment}/entry/")
 
 watch(filename, interval)
-
-
 

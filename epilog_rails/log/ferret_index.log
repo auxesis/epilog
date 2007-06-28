@@ -637,3 +637,261 @@ query:
 stored_fields: 
 query: 
 stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell~ message:hell~
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:helo message:helo
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: 
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:s message:s
+stored_fields: 
+query: datetime:spoon message:spoon
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:spoo message:spoo
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:sp message:sp
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime:spo message:spo
+stored_fields: 
+query: datetime:spo~ message:spo~
+stored_fields: 
+query: datetime:spoo message:spoo
+stored_fields: 
+query: datetime:spoo~ message:spoo~
+stored_fields: 
+query: datetime:spoo message:spoo
+stored_fields: 
+query: datetime:spoon~ message:spoon~
+stored_fields: 
+query: datetime:spo message:spo
+stored_fields: 
+query: datetime:s message:s
+stored_fields: 
+query: 
+stored_fields: 
+query: query
+stored_fields: 
+query: datetime:thin message:thin
+stored_fields: 
+query: datetime:thingy message:thingy
+stored_fields: 
+query: datetime:thing message:thing
+stored_fields: 
+query: datetime:world message:world
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:q message:q
+stored_fields: 
+query: datetime:qausim message:qausim
+stored_fields: 
+query: datetime:qau message:qau
+stored_fields: 
+query: datetime:qu message:qu
+stored_fields: 
+query: datetime:quasido message:quasido
+stored_fields: 
+query: datetime:quasi message:quasi
+stored_fields: 
+query: datetime:quasimodo message:quasimodo
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell~ message:hell~
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hel message:hel
+stored_fields: 
+query: datetime:hel~ message:hel~
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hell~ message:hell~
+stored_fields: 
+query: datetime:hell message:hell
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: +(datetime:hello message:hello) +(datetime:spo message:spo)
+stored_fields: 
+query: +(datetime:hello message:hello) +(datetime:spoons message:spoons)
+stored_fields: 
+query: +(datetime:hello message:hello) +(datetime:spoon message:spoon)
+stored_fields: 
+query: +(datetime:hello message:hello) +(datetime:sp message:sp)
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:l message:l
+stored_fields: 
+query: datetime:lost message:lost
+stored_fields: 
+query: datetime:los message:los
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:he message:he
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:hello message:hello
+stored_fields: 
+query: datetime:h message:h
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:spoo message:spoo
+stored_fields: 
+query: datetime:spoons message:spoons
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:conn message:conn
+stored_fields: 
+query: datetime:connect message:connect
+stored_fields: 
+query: datetime:connec message:connec
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:q message:q
+stored_fields: 
+query: datetime:qu message:qu
+stored_fields: 
+query: datetime:qu~ message:qu~
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:con message:con
+stored_fields: 
+query: datetime:connect message:connect
+stored_fields: 
+query: queryconnect
+stored_fields: 
+query: datetime:connec message:connec
+stored_fields: 
+query: datetime: message:
+stored_fields: 
+query: datetime:co message:co
+stored_fields: 
+query: datetime:conn message:conn
+stored_fields: 
+query: datetime:connect message:connect
+stored_fields: 
+query: 
+stored_fields: 
+query: datetime:c message:c
+stored_fields: 
+query: datetime:connec message:connec
+stored_fields: 
+query: datetime:connect message:connect
+stored_fields: 
+query: queryconnect
+stored_fields: 
+query: datetime:connec message:connec
+stored_fields: 
+query: datetime:conne message:conne
+stored_fields: 
+query: datetime:con message:con
+stored_fields: 
+query: 
+stored_fields: 

@@ -15,7 +15,7 @@ File.open(ARGV[0]) do |file|
     lines.each do |line|
       $stdout.write line
       $stdout.flush
-      sleep rand # * 2 
+      sleep rand  * 2 
     end
 end
 
