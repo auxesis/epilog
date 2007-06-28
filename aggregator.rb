@@ -70,7 +70,6 @@ def commit_and_index(message, datetime, digest, filename)
 
   # index the data 
   @index << { :message => entry.message, :datetime => entry.datetime, :id => entry.id }
-  puts entry.message
 
 end
 

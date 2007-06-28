@@ -17,25 +17,22 @@ class EntryController < ApplicationController
   end
 
   def find
-    if params[:id] then
-      @query = params[:id]
-    end
+    @query = params[:id] if params[:id] 
 
-    @entry_pages, @entries = paginate :entries, :per_page => 10
+    @pages, @entries = paginate :entries, :per_page => 10
 
   end
 
   def query
-
-    @entries = Entry.find_by_contents(params[:query])
     @query = params[:query]
+    @total, @entries = Entry.full_text_search(@query, :page => (params[:page]||1))          
+    @pages = pages_for(@total)
 
-    if params[:query].blank?
+    if @query.blank?
       list
     end
     
     render :partial => 'results', :layout => false
-
   end
 
 

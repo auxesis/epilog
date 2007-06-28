@@ -8,12 +8,13 @@ img.spinner {
 }
 
 #querier {
-  width: 60%;
+  width: 40%;
   padding: 9px;
   margin: 0px auto 0px auto;
-/*  border: 1px solid #ccc;
-  background-color: #fff; */
+  border: 1px solid #ccc;
+  background-color: #fff; 
   text-align: center;
+  font-weight: bold;
 }
 
 #querier input {
@@ -21,12 +22,14 @@ img.spinner {
   padding: 3px;
   margin: 20px auto 20px auto;
   vertical-align: middle;
+  background-color: #efefef;
 }
 
 #querier img {
   vertical-align: middle;
 /*  border: 3px solid red;
   color: #000; */
+  padding-right: 1em;
 }
 
 
@@ -37,30 +40,26 @@ strong.highlight {
 
 }
 
-#results { 
-  width: 90%;
+#ajax { 
+  width: 85%;
   border: 1px solid #ccc;
   margin: 5px auto 20px auto;
   padding: 15px;
   background-color: #fff;
 }
 
-#results td {
+#results tr.statistics {
+  background-color: #999;
+  text-align: right;
+  color: #fff;
+}
+
+#results th.message {
   width: 80%;
 }
 
-#results td.datetime {
-  width: 80%;
-  text-align: center;
-}
-
-#results td.message {
-  width: 50px;
-}
-
-#results.stats {
-  width: 100%
-  background-color: #ccc;
+#results th.datetime {
+  width: 20%;
 }
 
 body { 

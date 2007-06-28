@@ -1,25 +1,26 @@
 <div id="results">
-  
-<div id="stats">
-  <% if @entries.class != Array %>
-  Total Results: <%= @entries.total_hits %>
-  <% end %>
-</div>
 
 <table>
+  
+<% if @entries.size > 0 %>
   <tr>
-    <th style="80%">Message</th>
-    <th style="20%">Timestamp</th>
+    <% if @entries.class != Array %>
+      Total Results: <%= @entries.total_hits %>
+    <% end %>
+  </tr>
+  <tr>
+    <th class="message">Message</th>
+    <th class="datetime">Timestamp</th>
   </tr>
 
-<% for entry in @entries %>
+  <% for entry in @entries %>
   <tr>
-    <td id="message">
+    <td class="message">
       <% #highlight_or_truncate(entry.message, @query) 
       %>
       <%= h(entry.message) %>
     </td>
-    <td id="datetime">
+    <td class="datetime">
       <% #highlight_or_truncate(entry.datetime, @query) 
       %>
       <%= h(entry.datetime) %>
@@ -27,17 +28,20 @@
 
     <td>
       <% link_to_function "Show", "Effect.toggle('test', 'slide')" %>
-      <%= link_to "Show" %>
+      <%= link_to "Show", { :action => 'show', :id => entry.id } %>
     </td>
     
   </tr>
+  <% end %>
+  
+<% else %>
+  Sorry, I couldn't find anything that matched your query.
 <% end %>
+
 </table>
 
 </div>
 
-<%=# link_to 'Previous page', { :page => @entry_pages.current.previous } if @entry_pages.current.previous 
-%>
-<%=# link_to 'Next page', { :page => @entry_pages.current.next } if @entry_pages.current.next 
-%> 
+<%= link_to_remote 'Previous', :update => "ajax", :url => { :action => "query", :page => @pages.current.previous, :query => @query } if @pages.current.previous %>
+<%= link_to_remote 'Next', :update => "ajax", :url => { :action => "query", :page => @pages.current.next, :query => @query } if @pages.current.next %>
 

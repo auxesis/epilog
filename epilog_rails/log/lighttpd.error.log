@@ -197,3 +197,6 @@
 2007-06-28 15:25:47: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/views/entry/_results.rhtml:3: warning: found = in conditional, should be ==
  
 2007-06-28 15:25:47: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-28 23:28:06: (server.c.1239) [note] graceful shutdown started 
+2007-06-28 23:28:06: (log.c.135) server stopped 
+2007-06-28 23:28:11: (log.c.75) server started 

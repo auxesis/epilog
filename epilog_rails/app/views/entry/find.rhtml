@@ -3,15 +3,17 @@
 <% form_remote_tag :url => url_for(:action => "query") do %>
 
 <div id="querier">
- <%= image_tag 'epilog-logo.png' %>
- <%= text_field 'query', 'query', 'value' => @query, :id => 'query' %>
+ <%= image_tag 'epilog-logo2.png' %>
+ Query: <%= text_field 'query', 'query', 'value' => @query, :id => 'query' %>
 </div>
 
 <div id='ajax'>
   <%= render :partial => 'results' %>
+<% link_to_remote 'Previous page', :update => "results", :url => { :action => "query", :page => @pages.current.previous, :query => @query } if @pages.current.previous %>
+<% link_to_remote 'Next page', :update => "results", :url => { :action => "query", :page => @pages.current.next, :query => @query } if @pages.current.next %>
 </div>
 
-<%= observe_field :query, #dodgy hack until the text field sorts itself out
+<%= observe_field :query, 
                   :frequency  => 1,
                   :update     => 'ajax',
                   #:before     => "Element.show('spinner')",
