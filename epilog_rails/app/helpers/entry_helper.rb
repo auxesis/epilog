@@ -9,4 +9,12 @@ module EntryHelper
     end
   end
 
+  def toggle(id)
+    update_page do |page|
+      page.toggle(id)
+      page.visual_effect(:toggle_appear, id, :duration => 0.5)
+    end
+  end
+
+
 end

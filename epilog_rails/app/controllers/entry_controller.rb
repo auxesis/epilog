@@ -14,11 +14,7 @@ class EntryController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
-  end
-
-  def ajaxshow
-    @entry = Entry.find(params[:id])
-    render :partial => 'show'
+    render :partial => 'details'
   end
 
   def find

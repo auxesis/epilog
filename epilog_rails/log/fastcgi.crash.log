@@ -127,3 +127,9 @@
 [28/Jun/2007:23:28:06 :: 4569] asked to terminate immediately
 [28/Jun/2007:23:28:06 :: 4569] terminated by explicit exit
 [28/Jun/2007:23:28:14 :: 4171] starting
+[29/Jun/2007:12:39:11 :: 4171] asked to terminate immediately
+[29/Jun/2007:12:39:11 :: 4171] asked to terminate immediately
+Couldn't write to "/home/auxesis/code/epilog/code/epilog_rails/public/../config/../log/fastcgi.crash.log": asked to terminate immediately
+  SystemExit: exit
+[29/Jun/2007:12:39:11 :: 4171] terminated by explicit exit
+[29/Jun/2007:15:19:45 :: 7241] starting

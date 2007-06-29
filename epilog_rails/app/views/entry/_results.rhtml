@@ -15,27 +15,28 @@
   </tr>
 
   <% for entry in @entries %>
-  <tr id="entry-<%= entry.id.to_s %>">
-    <td class="message">
+  <tr>
+    <td>
       <%= h(entry.message) %>
     </td>
-    <td class="datetime">
+    <td>
       <%= h(entry.datetime) %>
     </td>
-
     <td>
       <%= link_to_remote "Show", 
-                         :update => "entry-" + entry.id.to_s, 
-                         :position => :after,
-                         :url => { :action => "ajaxshow", 
+                         :update => "details-" + entry.id.to_s, 
+                         :position => :before,
+                         :url => { :action => "show", 
                                    :id => entry.id, 
                                    :layout => false 
                                    },
-                         :loading => visual_effect(:fade, "entry-detailed-" + entry.id.to_s, :duration => 1)
+                         :loading => toggle("details-" + entry.id.to_s)
       %>
     </td>
-    
   </tr>
+
+  <div id="details-<%=h entry.id.to_s %>">
+  </div>
   <% end %>
   
 <% else %>
