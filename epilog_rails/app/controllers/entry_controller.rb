@@ -16,6 +16,11 @@ class EntryController < ApplicationController
     @entry = Entry.find(params[:id])
   end
 
+  def ajaxshow
+    @entry = Entry.find(params[:id])
+    render :partial => 'show'
+  end
+
   def find
     @query = params[:id] if params[:id] 
 

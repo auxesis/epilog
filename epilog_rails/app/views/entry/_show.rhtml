@@ -1,0 +1,7 @@
+<div id="entry-detailed-<%=h @entry.id.to_s %>">
+<% for column in Entry.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @entry.send(column.name) %>
+</p>
+<% end %>
+</div>

@@ -5,7 +5,8 @@
 <% if @entries.size > 0 %>
   <tr>
     <% if @entries.class != Array %>
-      Total Results: <%= @entries.total_hits %>
+    Total Results: <b><%= @entries.total_hits %></b>,
+    Viewing: <b><%= @pages.current.first_item %> - <%= @pages.current.last_item %></b>
     <% end %>
   </tr>
   <tr>
@@ -14,21 +15,24 @@
   </tr>
 
   <% for entry in @entries %>
-  <tr>
+  <tr id="entry-<%= entry.id.to_s %>">
     <td class="message">
-      <% #highlight_or_truncate(entry.message, @query) 
-      %>
       <%= h(entry.message) %>
     </td>
     <td class="datetime">
-      <% #highlight_or_truncate(entry.datetime, @query) 
-      %>
       <%= h(entry.datetime) %>
     </td>
 
     <td>
-      <% link_to_function "Show", "Effect.toggle('test', 'slide')" %>
-      <%= link_to "Show", { :action => 'show', :id => entry.id } %>
+      <%= link_to_remote "Show", 
+                         :update => "entry-" + entry.id.to_s, 
+                         :position => :after,
+                         :url => { :action => "ajaxshow", 
+                                   :id => entry.id, 
+                                   :layout => false 
+                                   },
+                         :loading => visual_effect(:fade, "entry-detailed-" + entry.id.to_s, :duration => 1)
+      %>
     </td>
     
   </tr>
@@ -42,6 +46,8 @@
 
 </div>
 
-<%= link_to_remote 'Previous', :update => "ajax", :url => { :action => "query", :page => @pages.current.previous, :query => @query } if @pages.current.previous %>
-<%= link_to_remote 'Next', :update => "ajax", :url => { :action => "query", :page => @pages.current.next, :query => @query } if @pages.current.next %>
+<center> 
+  <%= link_to_remote 'Previous', :update => "ajax", :url => { :action => "query", :page => @pages.current.previous, :query => @query } if @pages.current.previous %>
+  <%= link_to_remote 'Next', :update => "ajax", :url => { :action => "query", :page => @pages.current.next, :query => @query } if @pages.current.next %>
+</center>
 

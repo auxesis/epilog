@@ -9,8 +9,6 @@
 
 <div id='ajax'>
   <%= render :partial => 'results' %>
-<% link_to_remote 'Previous page', :update => "results", :url => { :action => "query", :page => @pages.current.previous, :query => @query } if @pages.current.previous %>
-<% link_to_remote 'Next page', :update => "results", :url => { :action => "query", :page => @pages.current.next, :query => @query } if @pages.current.next %>
 </div>
 
 <%= observe_field :query, 
