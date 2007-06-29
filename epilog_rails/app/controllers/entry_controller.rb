@@ -17,6 +17,15 @@ class EntryController < ApplicationController
     render :partial => 'details'
   end
 
+  def details
+    @entry = Entry.find(params[:id])
+    element = 'entry-' + @entry.id.to_s
+    render :update do |page|
+      page.replace_html element, :partial => "details"
+      page.visual_effect(:toggle_appear, element, :duration => 0.6)
+    end
+  end
+
   def find
     @query = params[:id] if params[:id] 
 

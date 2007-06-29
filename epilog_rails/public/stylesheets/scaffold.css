@@ -33,7 +33,6 @@ img.spinner {
 }
 
 
-
 strong.highlight { 
   background-color: #ffff7a; 
   font-weight: normal;
@@ -60,6 +59,11 @@ strong.highlight {
 
 #results th.datetime {
   width: 20%;
+}
+
+#results tr td.details {
+/*  background-color: #efefef; */
+  padding: 0px 20px 0px 20px;
 }
 
 body { 

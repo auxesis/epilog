@@ -9,10 +9,18 @@ module EntryHelper
     end
   end
 
+  # broken!
   def toggle(id)
+    link_to_function("Details", nil, :id => "more_link") do |page|
+      page[:details].visual_effect  :toggle_blind
+      page[:more_link].replace_html "Show me less"
+    end
+
     update_page do |page|
-      page.toggle(id)
-      page.visual_effect(:toggle_appear, id, :duration => 0.5)
+      page.delay(3) do
+        page.toggle(id)
+        #page.visual_effect(:toggle_appear, id, :duration => 0.5)
+      end
     end
   end
 

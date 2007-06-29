@@ -133,3 +133,6 @@ Couldn't write to "/home/auxesis/code/epilog/code/epilog_rails/public/../config/
   SystemExit: exit
 [29/Jun/2007:12:39:11 :: 4171] terminated by explicit exit
 [29/Jun/2007:15:19:45 :: 7241] starting
+[29/Jun/2007:17:50:53 :: 7241] asked to terminate immediately
+[29/Jun/2007:17:50:53 :: 7241] terminated by explicit exit
+[29/Jun/2007:19:25:09 :: 5786] starting

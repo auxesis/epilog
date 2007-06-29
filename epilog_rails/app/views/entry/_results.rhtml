@@ -23,20 +23,15 @@
       <%= h(entry.datetime) %>
     </td>
     <td>
-      <%= link_to_remote "Show", 
-                         :update => "details-" + entry.id.to_s, 
-                         :position => :before,
-                         :url => { :action => "show", 
-                                   :id => entry.id, 
-                                   :layout => false 
-                                   },
-                         :loading => toggle("details-" + entry.id.to_s)
-      %>
+      <%= link_to_remote "Show", :url => { :action => "details", :id => entry.id } %>
     </td>
+    <tr>
+      <td colspan="3" id="entry-<%=h entry.id.to_s %>" style="display: none;" class="details">
+      </td>
+    </tr>
+
   </tr>
 
-  <div id="details-<%=h entry.id.to_s %>">
-  </div>
   <% end %>
   
 <% else %>

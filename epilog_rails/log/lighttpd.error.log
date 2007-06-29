@@ -202,3 +202,10 @@
 2007-06-28 23:28:11: (log.c.75) server started 
 2007-06-29 12:39:10: (log.c.135) server stopped 
 2007-06-29 15:19:41: (log.c.75) server started 
+2007-06-29 16:08:23: (mod_fastcgi.c.2515) FastCGI-stderr: /home/auxesis/code/epilog/code/epilog_rails/public/../config/../app/helpers/entry_helper.rb:14: warning: multiple values for a block parameter (0 for 1)
+	from /usr/lib/ruby/gems/1.8/gems/actionpack-1.13.3/lib/action_view/helpers/prototype_helper.rb:548
+ 
+2007-06-29 16:08:23: (mod_fastcgi.c.2515) FastCGI-stderr:  
+2007-06-29 17:50:53: (server.c.1239) [note] graceful shutdown started 
+2007-06-29 17:50:53: (log.c.135) server stopped 
+2007-06-29 19:24:59: (log.c.75) server started 
