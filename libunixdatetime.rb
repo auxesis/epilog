@@ -6,7 +6,7 @@ require 'date'
 require 'time'
 
 def human_month_to_number(month)
-  month = month.capitalize
+  month = month.capitalize unless month == nil
   if Date::ABBR_MONTHNAMES.include?(month) then
     return Date::ABBR_MONTHNAMES.rindex(month)
   else
@@ -14,10 +14,9 @@ def human_month_to_number(month)
   end
 end
 
-def rfc3164_to_ruby_datetime(rfc3164_timestamp)
+def rfc3164_to_ruby_datetime(rfc3164_timestamp, year=Time.now.year) # scary assumption! bloody useless rfc3164
   split_stamp = rfc3164_timestamp.split
   
-  year = Time.now.year # scary assumption! bloody useless rfc3164
   month_human = split_stamp[0]
 
   begin
@@ -37,10 +36,10 @@ def rfc3164_to_ruby_datetime(rfc3164_timestamp)
   return time
 end
 
-timestamp = "Jun 4 06:27:17"
+#timestamp = "Jun 4 06:27:17"
 
-time = rfc3164_to_ruby_datetime(timestamp)
+#time = rfc3164_to_ruby_datetime(timestamp)
 
-puts time
+#puts time
 
 

@@ -1,3 +1,4 @@
 *.log
-./epilog_rails/index/*
-./epilog_rails/tmp/*
+epilog_rails/tmp/*
+epilog_rails/index/*
+epilog_rails/log/*

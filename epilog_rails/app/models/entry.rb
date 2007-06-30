@@ -1,7 +1,7 @@
 class Entry < ActiveRecord::Base
-  acts_as_ferret :fields => [:message, :datetime, :id]
+  acts_as_ferret :fields => [:message]
 
-  # usefully ripped from http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial
+  # shamefully ripped from http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial
   def self.full_text_search(q, options = {})
     return nil if q.nil? or q==""
     default_options = {:limit => 10, :page => 1}

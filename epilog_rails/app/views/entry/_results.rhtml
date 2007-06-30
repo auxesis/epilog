@@ -1,8 +1,7 @@
 <div id="results">
 
-<table>
-  
 <% if @entries.size > 0 %>
+<table>
   <tr>
     <% if @entries.class != Array %>
     Total Results: <b><%= @entries.total_hits %></b>,
@@ -34,11 +33,12 @@
 
   <% end %>
   
-<% else %>
-  Sorry, I couldn't find anything that matched your query.
-<% end %>
-
 </table>
+<% else %>
+  <p>
+    Sorry, I couldn't find anything that matched your query.
+  </p>
+<% end %>
 
 </div>
 

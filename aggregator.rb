@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 #
 # aggregator.rb
-# reads log files and pops them into a database
+# Reads log files and pops them into a database.
 #
-# Doesn't do any fancy transformations of the data. The raw lines
-# (and all extra spaces) are inserted verbatim. An md5sum of the 
-# intact line is used as a unique identifier of the line so 
-# duplicates are handled "nicer". 
+# Dates and times are converted hackishly to datetime objects 
+# so date searches in the app are remotely possible.
 #
-# The data is also indexed by ferret.
+# An md5sum of the intact line is used as a unique identifier 
+# so duplicates are handled nicer. 
+#
+# The data is indexed by ferret, though all fields seem to have
+# to be indexed to get the app search to return any results. I 
+# would like to know more!
 #
 
 require 'active_record'
@@ -16,11 +19,13 @@ require 'yaml'
 require 'md5'
 require 'term/ansicolor'
 require 'fileutils'
+require 'libunixdatetime.rb'
 require 'ferret'
 include Ferret
 
 class Entry < ActiveRecord::Base; end
 
+# gimme colour baby!
 class Color
   class << self
     include Term::ANSIColor
@@ -31,47 +36,72 @@ class String
   include Term::ANSIColor
 end
 
-def get_database_config
-  db_config = YAML::load(File.open('database.yml'))
-end
+class Storage
+  # Class for dealing with datastores. Handles databases
+  # through ActiveRecord, and indexes through Ferret
 
-def connect_to_database(config)
-  begin 
-    ActiveRecord::Base.configurations = config
-    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
-  rescue
-    puts "Problem connecting to database!"
+  def get_database_config(config='database.yml')
+    db_config = YAML::load(File.open(config))
   end
-end
 
-def setup_index(path='index')
+  def connect_to_database
+    ActiveRecord::Base.configurations = db_config
+    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
+  end
 
-  FileUtils.mkdir_p(path) if not File.exists? path
-  raise "Directory #{path} isn't writable!" if not File.writable? path
 
-  @index = Index::Index.new(:path => path)
-end
+  def setup_index(path='index')
 
-def commit_and_index(message, datetime, digest, filename)
+    FileUtils.mkdir_p(path) if not File.exists? path
+    raise "Directory #{path} isn't writable!" if not File.writable? path
 
-  # commit the data to the db
-  if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
-    puts "Entry #{digest} already exists!".yellow
-  else
-    begin
-      entry = Entry.new("message" => message, "datetime" => datetime, "digest" => digest, "filename" => filename)
-      entry.save
-    rescue SQLite3::BusyException
-      sleep 2
-      puts 'Database contention! Retrying.'.red
-      retry
+    @index = Index::Index.new(:path => path)
+  end
+
+  def store(message, datetime, digest, filename)
+    if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
+      puts "Entry #{digest} already exists!".yellow
+    else
+      begin
+        entry = Entry.new("message" => message, 
+                          "datetime" => datetime, 
+                          "digest" => digest, 
+                          "filename" => filename) 
+        entry.save
+        return entry
+      rescue SQLite3::BusyException
+        sleep 2
+        puts 'Database contention! Retrying.'.red
+        retry # risky but doable!
+      end
     end
   end
 
-  # index the data 
-  @index << { :message => entry.message, :datetime => entry.datetime, :id => entry.id }
+  def index(entry)
+      @index << { :message => entry.message, 
+                  :datetime => entry.datetime, 
+                  :id => entry.id,
+                  :digest => entry.digest 
+      } # the search in the rails app doesn't work without 
+        # passing in the digest. i'd like to know why!
+  end
 
+  def store_and_index(message, datetime, digest, file)
+    # we pass in the mtime of the file in as the year.
+    # there needs to be a better check for working out
+    # what the year *actually* is though.
+    year = file.mtime.year
+    time = rfc3164_to_ruby_datetime(datetime, year)  
+    filename  = file.path.split('/').pop
+
+    store(message, time, digest)
+
+    index(entry)
+
+  end 
 end
+
+
 
 def watch(filename, interval)
 
@@ -94,7 +124,7 @@ def watch(filename, interval)
         message = line[16..-1]
         digest = MD5.hexdigest(line)
 
-        commit_and_index(message, datetime, digest, basename)
+        @s.store_and_index(message, datetime, digest, basename, @current_file_state)
 
       end
     
@@ -109,6 +139,8 @@ def watch(filename, interval)
   end
 end
 
+
+
 # let's begin
 
 if ARGV.length < 1 then
@@ -118,18 +150,16 @@ end
 
 filename = ARGV[0]
 
-if ARGV[1] then
-  interval = ARGV[1].to_i
-else 
-  interval = 2
-end
+# how horrible! 
+if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
 
 # temporary hack for setting the database and index environment
 @environment = 'development'
 
-config = get_database_config
-connect_to_database(config)
-setup_index("epilog_rails/index/#{@environment}/entry/")
+@s = Storage.new
+@s.get_database_config
+@s.connect_to_database
+@s.setup_index("epilog_rails/index/#{@environment}/entry/")
 
 watch(filename, interval)
 
