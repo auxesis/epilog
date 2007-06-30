@@ -7745,3 +7745,64 @@ Jun  2 19:12:22 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.
 Jun  2 19:18:05 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
 Jun  2 19:18:05 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
 Jun  2 19:18:05 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): mail(user)=jim@ordinatesystems.com userPassword(password)={MD5}SpsmI5Cq20ojX1M97r3SuA==
+Jun  2 19:18:05 quasimodo dovecot: auth(default): client out: OK^I1^Iuser=jim@ordinatesystems.com
+Jun  2 19:18:05 quasimodo dovecot: auth(default): master in: REQUEST^I5307^I22233^I1
+Jun  2 19:18:05 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)(accountStatus=active)) fields=mail,,mailMessageStore,,,
+Jun  2 19:18:05 quasimodo dovecot: auth(default): master out: USER^I5307^Ijim@ordinatesystems.com^I=jim@ordinatesystems.com^Imail=/srv/mail/ordinatesystems.com/jim/^Iuid=499^Igid=499
+Jun  2 19:18:05 quasimodo dovecot: imap(jim@ordinatesystems.com): Effective uid=499, gid=499
+Jun  2 19:18:05 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: data=/srv/mail/ordinatesystems.com/jim/
+Jun  2 19:18:05 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: root=/srv/mail/ordinatesystems.com/jim, index=/srv/mail/ordinatesystems.com/jim, control=, inbox=
+Jun  2 19:18:05 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.com>, method=PLAIN, rip=203.219.192.118, lip=202.177.221.61, TLS
+Jun  2 19:18:08 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
+Jun  2 19:18:08 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
+Jun  2 19:18:08 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): mail(user)=jim@ordinatesystems.com userPassword(password)={MD5}SpsmI5Cq20ojX1M97r3SuA==
+Jun  2 19:18:08 quasimodo dovecot: auth(default): client out: OK^I1^Iuser=jim@ordinatesystems.com
+Jun  2 19:18:08 quasimodo dovecot: auth(default): master in: REQUEST^I5308^I22240^I1
+Jun  2 19:18:08 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)(accountStatus=active)) fields=mail,,mailMessageStore,,,
+Jun  2 19:18:08 quasimodo dovecot: imap(jim@ordinatesystems.com): Effective uid=499, gid=499
+Jun  2 19:18:08 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: data=/srv/mail/ordinatesystems.com/jim/
+Jun  2 19:18:08 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: root=/srv/mail/ordinatesystems.com/jim, index=/srv/mail/ordinatesystems.com/jim, control=, inbox=
+Jun  2 19:18:08 quasimodo dovecot: auth(default): master out: USER^I5308^Ijim@ordinatesystems.com^I=jim@ordinatesystems.com^Imail=/srv/mail/ordinatesystems.com/jim/^Iuid=499^Igid=499
+Jun  2 19:18:08 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.com>, method=PLAIN, rip=203.219.192.118, lip=202.177.221.61, TLS
+Jun  2 19:22:21 quasimodo postfix/smtpd[22248]: connect from cpe-75-80-103-6.socal.res.rr.com[75.80.103.6]
+Jun  2 19:22:22 quasimodo postfix/smtpd[22248]: NOQUEUE: reject: RCPT from cpe-75-80-103-6.socal.res.rr.com[75.80.103.6]: 504 <localhost>: Helo command rejected: need fully-qualified hostname; from=<bulbulmuzik.com@fenghuaedu.com> to=<lindsay@holmwood.id.au> proto=SMTP helo=<localhost>
+Jun  2 19:22:23 quasimodo postfix/smtpd[22248]: lost connection after RCPT from cpe-75-80-103-6.socal.res.rr.com[75.80.103.6]
+Jun  2 19:22:23 quasimodo postfix/smtpd[22248]: disconnect from cpe-75-80-103-6.socal.res.rr.com[75.80.103.6]
+Jun  2 19:23:48 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
+Jun  2 19:23:48 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
+Jun  2 19:23:48 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): mail(user)=jim@ordinatesystems.com userPassword(password)={MD5}SpsmI5Cq20ojX1M97r3SuA==
+Jun  2 19:23:48 quasimodo dovecot: auth(default): client out: OK^I1^Iuser=jim@ordinatesystems.com
+Jun  2 19:23:48 quasimodo dovecot: auth(default): master in: REQUEST^I5309^I22235^I1
+Jun  2 19:23:48 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)(accountStatus=active)) fields=mail,,mailMessageStore,,,
+Jun  2 19:23:48 quasimodo dovecot: auth(default): master out: USER^I5309^Ijim@ordinatesystems.com^I=jim@ordinatesystems.com^Imail=/srv/mail/ordinatesystems.com/jim/^Iuid=499^Igid=499
+Jun  2 19:23:48 quasimodo dovecot: imap(jim@ordinatesystems.com): Effective uid=499, gid=499
+Jun  2 19:23:48 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: data=/srv/mail/ordinatesystems.com/jim/
+Jun  2 19:23:48 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: root=/srv/mail/ordinatesystems.com/jim, index=/srv/mail/ordinatesystems.com/jim, control=, inbox=
+Jun  2 19:23:48 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.com>, method=PLAIN, rip=203.219.192.118, lip=202.177.221.61, TLS
+Jun  2 19:23:50 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
+Jun  2 19:23:50 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
+Jun  2 19:23:50 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): mail(user)=jim@ordinatesystems.com userPassword(password)={MD5}SpsmI5Cq20ojX1M97r3SuA==
+Jun  2 19:23:50 quasimodo dovecot: auth(default): client out: OK^I1^Iuser=jim@ordinatesystems.com
+Jun  2 19:23:50 quasimodo dovecot: auth(default): master in: REQUEST^I5310^I22256^I1
+Jun  2 19:23:50 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)(accountStatus=active)) fields=mail,,mailMessageStore,,,
+Jun  2 19:23:50 quasimodo dovecot: auth(default): master out: USER^I5310^Ijim@ordinatesystems.com^I=jim@ordinatesystems.com^Imail=/srv/mail/ordinatesystems.com/jim/^Iuid=499^Igid=499
+Jun  2 19:23:50 quasimodo dovecot: imap(jim@ordinatesystems.com): Effective uid=499, gid=499
+Jun  2 19:23:50 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: data=/srv/mail/ordinatesystems.com/jim/
+Jun  2 19:23:50 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: root=/srv/mail/ordinatesystems.com/jim, index=/srv/mail/ordinatesystems.com/jim, control=, inbox=
+Jun  2 19:23:50 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.com>, method=PLAIN, rip=203.219.192.118, lip=202.177.221.61, TLS
+Jun  2 19:25:43 quasimodo postfix/anvil[22249]: statistics: max connection rate 1/60s for (smtp:75.80.103.6) at Jun  2 19:22:21
+Jun  2 19:25:43 quasimodo postfix/anvil[22249]: statistics: max connection count 1 for (smtp:75.80.103.6) at Jun  2 19:22:21
+Jun  2 19:25:43 quasimodo postfix/anvil[22249]: statistics: max cache size 1 at Jun  2 19:22:21
+Jun  2 19:29:26 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
+Jun  2 19:29:26 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
+Jun  2 19:29:26 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): mail(user)=jim@ordinatesystems.com userPassword(password)={MD5}SpsmI5Cq20ojX1M97r3SuA==
+Jun  2 19:29:26 quasimodo dovecot: auth(default): client out: OK^I1^Iuser=jim@ordinatesystems.com
+Jun  2 19:29:26 quasimodo dovecot: auth(default): master in: REQUEST^I5311^I22242^I1
+Jun  2 19:29:26 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)(accountStatus=active)) fields=mail,,mailMessageStore,,,
+Jun  2 19:29:26 quasimodo dovecot: auth(default): master out: USER^I5311^Ijim@ordinatesystems.com^I=jim@ordinatesystems.com^Imail=/srv/mail/ordinatesystems.com/jim/^Iuid=499^Igid=499
+Jun  2 19:29:26 quasimodo dovecot: imap(jim@ordinatesystems.com): Effective uid=499, gid=499
+Jun  2 19:29:26 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: data=/srv/mail/ordinatesystems.com/jim/
+Jun  2 19:29:26 quasimodo dovecot: imap(jim@ordinatesystems.com): maildir: root=/srv/mail/ordinatesystems.com/jim, index=/srv/mail/ordinatesystems.com/jim, control=, inbox=
+Jun  2 19:29:26 quasimodo dovecot: imap-login: Login: user=<jim@ordinatesystems.com>, method=PLAIN, rip=203.219.192.118, lip=202.177.221.61, TLS
+Jun  2 19:29:26 quasimodo dovecot: auth(default): client in: AUTH^I1^IPLAIN^Iservice=IMAP^Isecured^Ilip=202.177.221.61^Irip=203.219.192.118^Iresp=AGppbUBvcmRpbmF0ZXN5c3RlbXMuY29tAHplaXF1NlNo
+Jun  2 19:29:26 quasimodo dovecot: auth(default): ldap(jim@ordinatesystems.com,203.219.192.118): base=ou=domains,dc=quasimodo scope=subtree filter=(&(mail=jim@ordinatesystems.com)) fields=mail,userPassword
