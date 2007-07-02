@@ -93,11 +93,13 @@ class Storage
 
   def index(entry)
       @index << { :message => entry.message, 
-                  :datetime => entry.datetime.strftime("%A %B %d %Y %j"), 
-                  :id => entry.id
-#                  :digest => entry.digest 
+                  :datetime => entry.datetime,
+                  :id => entry.id,
+                  :digest => entry.digest 
       } # the search in the rails app doesn't work without 
         # passing in the digest. i'd like to know why!
+      puts entry.message
+      puts entry.datetime
   end
 
   def store_and_index(message, datetime, digest, filename, filestat)

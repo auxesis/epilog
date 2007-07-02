@@ -42,7 +42,7 @@ class EntryController < ApplicationController
   def query
     @query = params[:query]
 
-    @query = contextualise_time(@query)
+    #@query = contextualise_time(@query)
     
     #if params[:query].is_hash? then @query = params[:query][:query].split('=').pop end
     
