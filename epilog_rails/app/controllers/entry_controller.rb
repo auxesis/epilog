@@ -8,6 +8,11 @@ class EntryController < ApplicationController
   verify :method => :post, :only => [ :destroy, :create, :update, :query ],
          :redirect_to => { :action => :find }
 
+  def calendar
+    #render :layout => false
+  end
+
+
   def list
     @entry_pages, @entries = paginate :entries, :per_page => 10
   end
@@ -36,7 +41,11 @@ class EntryController < ApplicationController
 
   def query
     @query = params[:query]
+
+    @query = contextualise_time(@query)
+    
     #if params[:query].is_hash? then @query = params[:query][:query].split('=').pop end
+    
     @total, @entries = Entry.full_text_search(@query, :page => (params[:page]||1))          
     @pages = pages_for(@total)
 
@@ -48,9 +57,27 @@ class EntryController < ApplicationController
   end
 
 
+  def contextualise_time(query)
+    case query
+    when /yesterday/
+      timestamp = 1.day.ago.strftime("%A %B %d %Y %j")
+      query.gsub!('yesterday', timestamp)
+      return query
+    when /last week/
+      day = 1.week.ago.beginning_of_week.strftime("%j").to_i
+      range = []
+      (day..day+6).each {|n| range << n}
+      range = range.join(' ')
+      query.gsub!('last week', range)
+      return query
+    else
+      return query
+    end
+  end
+
   # lets just disable this for now. 
-  #def query_store query
-  #  Query.new = query
+  #def query_store 
+  #  Query.new = params[:query]
   #  Query.save
   #end
 

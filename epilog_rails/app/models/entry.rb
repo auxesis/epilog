@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  acts_as_ferret :fields => [:message]
+  acts_as_ferret :fields => [:message, :datetime]
 
   # shamefully ripped from http://www.railsenvy.com/2007/2/19/acts-as-ferret-tutorial
   def self.full_text_search(q, options = {})

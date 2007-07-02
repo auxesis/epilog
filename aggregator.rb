@@ -93,9 +93,9 @@ class Storage
 
   def index(entry)
       @index << { :message => entry.message, 
-                  :datetime => entry.datetime, 
-                  :id => entry.id,
-                  :digest => entry.digest 
+                  :datetime => entry.datetime.strftime("%A %B %d %Y %j"), 
+                  :id => entry.id
+#                  :digest => entry.digest 
       } # the search in the rails app doesn't work without 
         # passing in the digest. i'd like to know why!
   end
@@ -109,7 +109,7 @@ class Storage
 
     entry = store(message, time, digest, filename)
 
-    index(entry)
+    index(entry) unless entry.blank?
 
   end 
 end
@@ -185,5 +185,9 @@ if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
 @s.connect_to_database
 @s.setup_index("epilog_rails/index/#{@environment}/entry/")
 
-watch(filename, interval)
+begin 
+  watch(filename, interval)
+rescue Interrupt
+  puts "Exiting.".magenta
+end
 
