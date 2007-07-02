@@ -11,14 +11,25 @@
 #
 # The data is indexed by ferret, though all fields seem to have
 # to be indexed to get the app search to return any results. I 
-# would like to know more!
+# would like to know more.
 #
+# TODO
+#  - check what the environment is and set it globally
+#  - find a better way to determine the year with log 
+#    files that span multiple years
+#  - keep track of the lines within a file that have
+#    been indexed
+#    - note line number
+#    - take md5sum of first line
+
+
 
 require 'active_record'
 require 'yaml'
 require 'md5'
 require 'term/ansicolor'
 require 'fileutils'
+require 'ftools'
 require 'libunixdatetime.rb'
 require 'ferret'
 include Ferret
@@ -40,18 +51,21 @@ class Storage
   # Class for dealing with datastores. Handles databases
   # through ActiveRecord, and indexes through Ferret
 
+  def initialize
+    # temporary hack for setting the database and index environment
+    @environment = 'development'
+  end
+
   def get_database_config(config='database.yml')
-    db_config = YAML::load(File.open(config))
+    @db_config = YAML::load(File.open(config))
   end
 
   def connect_to_database
-    ActiveRecord::Base.configurations = db_config
+    ActiveRecord::Base.configurations = @db_config
     ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
   end
 
-
   def setup_index(path='index')
-
     FileUtils.mkdir_p(path) if not File.exists? path
     raise "Directory #{path} isn't writable!" if not File.writable? path
 
@@ -72,7 +86,7 @@ class Storage
       rescue SQLite3::BusyException
         sleep 2
         puts 'Database contention! Retrying.'.red
-        retry # risky but doable!
+        retry # risky but doable
       end
     end
   end
@@ -86,15 +100,14 @@ class Storage
         # passing in the digest. i'd like to know why!
   end
 
-  def store_and_index(message, datetime, digest, file)
+  def store_and_index(message, datetime, digest, filename, filestat)
     # we pass in the mtime of the file in as the year.
     # there needs to be a better check for working out
     # what the year *actually* is though.
-    year = file.mtime.year
+    year = filestat.mtime.year
     time = rfc3164_to_ruby_datetime(datetime, year)  
-    filename  = file.path.split('/').pop
 
-    store(message, time, digest)
+    entry = store(message, time, digest, filename)
 
     index(entry)
 
@@ -103,39 +116,50 @@ end
 
 
 
+
+def set_state(stat, contents)
+  @file_stat = stat
+  @file_contents = contents
+end
+
 def watch(filename, interval)
 
-  @file_contents = File.open(filename).readlines
-  @file_state = File.stat(filename)
+  contents = File.open(filename).readlines
+  stat = File.stat(filename)
 
-  basename = filename.split.pop
+  set_state(stat, contents)
 
   while true do 
-    @current_file_state = File.stat(filename)
+    @current_file_stat = File.stat(filename)
 
-    if @current_file_state != @file_state then
+    if @file_stat != @current_file_stat then
       puts "#{filename.split.pop} has changed.".green
 
       @current_file_contents = File.open(filename).readlines
-      lines = @current_file_contents - @file_contents # dodgy hack, probably doesn't work in the real world
+      
+      # dodgy hack, isn't accurate
+      lines = @current_file_contents - @file_contents 
 
       lines.each do |line|
         datetime = line[0..15]
         message = line[16..-1]
         digest = MD5.hexdigest(line)
 
-        @s.store_and_index(message, datetime, digest, basename, @current_file_state)
-
+        @s.store_and_index(message, 
+                           datetime, 
+                           digest, 
+                           filename, # god this is nasty
+                           @current_file_stat
+                          )
       end
-    
-     @file_state = @current_file_state
-     @file_contents = @current_file_contents
+   
+      set_state(@current_file_stat, @current_file_contents)
 
-   else 
-     puts "#{filename.split.pop} hasn't changed.".blue
-   end
+     else 
+       puts "#{filename.split.pop} hasn't changed.".blue
+     end
 
-  sleep interval
+    sleep interval
   end
 end
 
@@ -150,7 +174,7 @@ end
 
 filename = ARGV[0]
 
-# how horrible! 
+# how horrible
 if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
 
 # temporary hack for setting the database and index environment

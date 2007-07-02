@@ -20,6 +20,7 @@ class EntryController < ApplicationController
   def details
     @entry = Entry.find(params[:id])
     element = 'entry-' + @entry.id.to_s
+    # icky! this should be separated out into rjs
     render :update do |page|
       page.replace_html element, :partial => "details"
       page.visual_effect(:toggle_appear, element, :duration => 0.6)
@@ -35,6 +36,7 @@ class EntryController < ApplicationController
 
   def query
     @query = params[:query]
+    #if params[:query].is_hash? then @query = params[:query][:query].split('=').pop end
     @total, @entries = Entry.full_text_search(@query, :page => (params[:page]||1))          
     @pages = pages_for(@total)
 
