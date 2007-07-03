@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   # -- just remember to delete public/index.html.
   map.connect '', :controller => "entry"
   map.connect 'epilog', :controller => "entry"
+  map.connect ':action/:id', :controller => "entry"
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

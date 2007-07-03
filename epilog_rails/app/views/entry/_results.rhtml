@@ -1,13 +1,13 @@
 <div id="results">
 
-<% if @entries.size > 0 %>
+<% unless @entries.blank? %>
 <table>
+  <% if @entries.class == ActsAsFerret::SearchResults  %>
   <tr>
-    <% if @entries.class != Array %>
     Total Results: <b><%= @entries.total_hits %></b>,
     Viewing: <b><%= @pages.current.first_item %> - <%= @pages.current.last_item %></b>
-    <% end %>
   </tr>
+  <% end %>
   <tr>
     <th class="message">Message</th>
     <th class="datetime">Timestamp</th>
@@ -36,7 +36,8 @@
 </table>
 <% else %>
   <p>
-    Sorry, I couldn't find anything that matched your query.
+  Sorry, I couldn't find anything that matched your query.
+  <%= debug(params[:query]) %>
   </p>
 <% end %>
 

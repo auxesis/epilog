@@ -5,21 +5,16 @@ class EntryController < ApplicationController
   end
 
   # GETs should be safe (see http://www.w3.org/2001/tag/doc/whenToUseGet.html)
-  verify :method => :post, :only => [ :destroy, :create, :update, :query ],
-         :redirect_to => { :action => :find }
+  verify :method => :post, :only => [ :destroy, :create, :update ],
+         :redirect_to => { :action => :index }
 
   def calendar
     #render :layout => false
   end
 
-
-  def list
-    @entry_pages, @entries = paginate :entries, :per_page => 10
-  end
-
   def show
     @entry = Entry.find(params[:id])
-    render :partial => 'details'
+    render :partial => 'details', :layout => true
   end
 
   def details
@@ -33,25 +28,23 @@ class EntryController < ApplicationController
   end
 
   def find
-    @query = params[:id] if params[:id] 
+    #@query = params[:id] if params[:id] 
 
     @pages, @entries = paginate :entries, :per_page => 10
-
   end
 
   def query
-    @query = params[:query]
+    find if params[:query].blank?
 
-    #@query = contextualise_time(@query)
+    @query = params[:query]
     
+    #@query = contextualise_time(@query)
     #if params[:query].is_hash? then @query = params[:query][:query].split('=').pop end
     
     @total, @entries = Entry.full_text_search(@query, :page => (params[:page]||1))          
     @pages = pages_for(@total)
 
-    if @query.blank?
-      list
-    end
+    find if params[:query].blank?
     
     render :partial => 'results', :layout => false
   end
