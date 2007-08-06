@@ -14,4 +14,5 @@ class Entry < ActiveRecord::Base
     results = Entry.find_by_contents(q, options)
     return [results.total_hits, results]
   end
+
 end

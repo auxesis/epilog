@@ -1,4 +1,8 @@
 module EntryHelper
+  def html_escape_with_exception(string, exception)
+    string.to_s.gsub(/&/, "&amp;").gsub(/\"/, "&quot;").gsub(/>/, "&gt;").gsub(/</, "&lt;")
+  end
+
   def highlight_or_truncate(content, query)
     content=h(content)
     if query.nil? then

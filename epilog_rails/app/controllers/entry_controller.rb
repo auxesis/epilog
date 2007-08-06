@@ -44,9 +44,15 @@ class EntryController < ApplicationController
     @total, @entries = Entry.full_text_search(@query, :page => (params[:page]||1))          
     @pages = pages_for(@total)
 
+    #@entries = @entries.highlight(@query, 
+
     find if params[:query].blank?
     
-    render :partial => 'results', :layout => false
+    if params[:format] == 'rss'
+      render :partial => 'results_rss', :layout => false
+    else
+      render :partial => 'results', :layout => false
+    end
   end
 
 

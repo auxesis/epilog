@@ -1,0 +1,18 @@
+xml.instruct! :xml, :version=>"1.0" 
+xml.rss(:version=>"2.0"){
+  xml.channel{
+    xml.title("Epilog RSS feed for: #{@query}")
+    xml.link("http://192.168.0.184/" + request.request_uri)
+    xml.description("Epilog RSS feed for the query \"#{@query}\"")
+    xml.language("en-AU")
+    for entry in @entries.sort_by {|a, b| a.datetime <=> b.datetime }.reverse
+      xml.item do
+        xml.title(truncate(entry.message))
+        xml.description(highlight(entry.message, @query))
+        xml.pubDate(entry.datetime)
+      xml.link("http://localhost:3000/epilog/show/#{entry.id}")
+      xml.guid("http://www.yourDomain.com/linkToYourPost")
+      end
+    end
+  }
+}

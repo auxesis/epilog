@@ -11,9 +11,14 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
+
+  map.connect 'q/:query/:format', :controller => "entry", :action => "query"
+
   map.connect '', :controller => "entry"
+  map.connect 'epilog/:action/:id', :controller => "entry"
   map.connect 'epilog', :controller => "entry"
   map.connect ':action/:id', :controller => "entry"
+
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'

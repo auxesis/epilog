@@ -16,10 +16,17 @@
   <% for entry in @entries %>
   <tr>
     <td>
-      <%= h(entry.message) %>
+      <% if @query and @query.length > 0 then %>
+      <% #disabled until highlighting plays nice with escaping
+        #h(entry.highlight(@query, :field => :message, :pre_tag => '<b>', :post_tag => "</b>")) 
+      %>
+        <%= h(entry.message) %>
+      <% else %>
+        <%= h(entry.message) %>
+      <% end %>
     </td>
     <td>
-      <%= h(entry.datetime) %>
+        <%= h(entry.datetime) %>
     </td>
     <td>
       <%= link_to_remote "Show", :url => { :action => "details", :id => entry.id } %>
@@ -37,7 +44,6 @@
 <% else %>
   <p>
   Sorry, I couldn't find anything that matched your query.
-  <%= debug(params[:query]) %>
   </p>
 <% end %>
 
