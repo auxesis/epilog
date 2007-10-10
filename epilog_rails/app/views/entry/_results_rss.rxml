@@ -5,7 +5,8 @@ xml.rss(:version=>"2.0"){
     xml.link("http://192.168.0.184/" + request.request_uri)
     xml.description("Epilog RSS feed for the query \"#{@query}\"")
     xml.language("en-AU")
-    for entry in @entries.sort_by {|a, b| a.datetime <=> b.datetime }.reverse
+    #for entry in @entries.sort_by {|a, b| a.datetime <=> b.datetime }.reverse
+    for entry in @entries.reverse
       xml.item do
         xml.title(truncate(entry.message))
         xml.description(highlight(entry.message, @query))
