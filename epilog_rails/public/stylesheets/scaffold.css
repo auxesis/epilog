@@ -66,6 +66,10 @@ strong.highlight {
   padding: 0px 20px 0px 20px;
 }
 
+#feed {
+  text-align: right;
+}
+
 body { 
   background-color: #fff; color: #333;
   background: #fff url('/images/bg.png') repeat-x;
