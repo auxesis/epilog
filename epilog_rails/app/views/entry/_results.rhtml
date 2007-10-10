@@ -26,7 +26,7 @@
       <% end %>
     </td>
     <td>
-        <%= h(entry.datetime) %>
+        <%= h(entry.datetime.strftime("%F %H:%M:%S")) %>
     </td>
     <td>
       <%= link_to_remote "Show", :url => { :action => "details", :id => entry.id } %>
