@@ -3,6 +3,8 @@ require 'active_record'
 require 'yaml'
 require 'fileutils'
 require 'ferret'
+require 'rfc3164'
+
 
 module Epilog
   include Ferret
@@ -67,7 +69,7 @@ module Epilog
       # there needs to be a better check for working out
       # what the year *actually* is.
       year = filestat.mtime.year
-      time = rfc3164_to_ruby_datetime(datetime, year)  
+      time = Epilog::RFC3164.to_ruby_datetime(datetime, year)  
 
       entry = store(message, time, digest, filename)
 
