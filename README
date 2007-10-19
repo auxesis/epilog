@@ -1,0 +1,19 @@
+== Epilog
+
+Epilog is a simple log viewing application written in Ruby on Rails, 
+and a log aggregator written in Ruby. It uses Ferret, a Ruby port of 
+the Apache Lucene indexer and search engine, and the acts_as_ferret 
+Rails plugin to provide fast searching  of rfc3164 formatted log files.
+
+Simply put, Epilog makes viewing near real time logs through a web 
+interface quick and easy. 
+
+== Where stuff is
+
+The rails viewing bits exist under rails/
+The aggregator code exists under aggregator/
+
+A symlink of the rails databases.yml is made to the aggregator
+directory so database settings are shared. 
+
+
