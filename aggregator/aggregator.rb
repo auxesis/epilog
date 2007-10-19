@@ -24,6 +24,7 @@
 
 
 
+
 require 'active_record'
 require 'yaml'
 require 'md5'
@@ -33,6 +34,9 @@ require 'ftools'
 require 'libunixdatetime.rb'
 require 'ferret'
 include Ferret
+
+require 'lib/storage'
+require 'lib/watcher'
 
 class Entry < ActiveRecord::Base; end
 
@@ -46,132 +50,6 @@ end
 class String
   include Term::ANSIColor
 end
-
-module Epilog
-
-  class Storage
-    # Class for dealing with datastores. Handles databases
-    # through ActiveRecord, and indexes through Ferret
-
-    def initialize(environment)
-      # temporary hack for setting the database and index environment
-      @environment = environment
-    end
-
-    def get_database_config(config='database.yml')
-      @db_config = YAML::load(File.open(config))
-    end
-
-    def connect_to_database
-      ActiveRecord::Base.configurations = @db_config
-      ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
-    end
-
-    def setup_index(path='index')
-      FileUtils.mkdir_p(path) if not File.exists? path
-      raise "Directory #{path} isn't writable!" if not File.writable? path
-
-      @index = Index::Index.new(:path => path)
-    end
-
-    def store(message, datetime, digest, filename)
-      if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
-        puts "Entry #{digest} already exists!".yellow
-      else
-        begin
-          entry = Entry.new("message" => message, 
-                            "datetime" => datetime, 
-                            "digest" => digest, 
-                            "filename" => filename) 
-          entry.save
-          return entry
-        rescue SQLite3::BusyException
-          sleep 2
-          puts 'Database contention! Retrying.'.red
-          retry # risky but doable
-        end
-      end
-    end
-
-    def index(entry)
-        @index << { :message => entry.message, 
-                    :datetime => entry.datetime,
-                    :id => entry.id,
-                    :digest => entry.digest 
-        } # the search in the rails app doesn't work without 
-          # passing in the digest. i'd like to know why!
-        puts entry.message
-        puts entry.datetime
-    end
-
-    def store_and_index(message, datetime, digest, filename, filestat)
-      # we pass in the mtime of the file in as the year.
-      # there needs to be a better check for working out
-      # what the year *actually* is.
-      year = filestat.mtime.year
-      time = rfc3164_to_ruby_datetime(datetime, year)  
-
-      entry = store(message, time, digest, filename)
-
-      index(entry) unless entry.blank?
-
-    end 
-
-  end
-
-  class Watcher  
-
-    def initialize(storage)
-      @storage = storage
-    end
-
-    def set_state(stat, contents)
-      @file_stat = stat
-      @file_contents = contents
-    end
-
-    def watch(filename, interval)
-
-      contents = File.open(filename).readlines
-      stat = File.stat(filename)
-
-      set_state(stat, contents)
-
-      while true do 
-        @current_file_stat = File.stat(filename)
-
-        if @file_stat != @current_file_stat then
-          puts "#{filename.split.pop} has changed.".green
-
-          @current_file_contents = File.open(filename).readlines
-      
-          # dodgy hack, isn't accurate
-          lines = @current_file_contents - @file_contents 
-
-          lines.each do |line|
-            datetime = line[0..15]
-            message = line[16..-1]
-            digest = MD5.hexdigest(line)
-
-            @storage.store_and_index(message, datetime, digest, filename, @current_file_stat )
-          end
-   
-          set_state(@current_file_stat, @current_file_contents)
-
-        else 
-           puts "#{filename.split.pop} hasn't changed.".blue
-        end
-
-        sleep interval
-      end
-
-    end #def
-
-  end #class
-
-end #module
-
-
 
 
 # let's begin
