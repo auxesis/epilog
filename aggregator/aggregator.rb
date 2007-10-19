@@ -14,7 +14,7 @@
 # would like to know more.
 #
 # TODO
-#  - check what the environment is and set it globally
+#  - properly check and check what the application environment 
 #  - find a better way to determine the year with log 
 #    files that span multiple years
 #  - keep track of the lines within a file that have
