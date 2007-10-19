@@ -51,9 +51,10 @@ end
 # point the index to the right place
 RAILS_ROOT = ENV["RAILS_ROOT"] || File.dirname(__FILE__) + '/../rails'
 
-# setup storage
-storage = Epilog::DBStorage.new(environment)
-storage.get_database_config
+# setup database storage 
+storage = Epilog::DBStorage.new
+storage.environment = environment
+storage.database_config = YAML::load(File.open('database.yml'))
 storage.connect_to_database
 storage.setup_index("#{RAILS_ROOT}/index/#{environment}/entry/")
 
