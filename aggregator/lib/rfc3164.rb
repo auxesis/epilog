@@ -40,7 +40,7 @@ module Epilog
 
       # convert the abbreviated month to a month number
       begin
-        month = human_month_to_number(abbreviated_month)
+        month = RFC3164.human_month_to_number(abbreviated_month)
       rescue RuntimeError
         raise "Please provide a valid rfc3164 timestamp!"
       end
