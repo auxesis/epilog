@@ -1,15 +1,21 @@
+#!/usr/bin/env ruby
 
 require 'active_record'
 require 'yaml'
 require 'fileutils'
 require 'ferret'
-require 'rfc3164'
 
+#require File.join(File.dirname(__FILE__), '..', 'lib', 'rfc3164')
+#require File.join(File.dirname(__FILE__), '..', 'lib', 'db')
+require 'lib/rfc3164'
+
+include Ferret
+
+class Entry < ActiveRecord::Base ; end
 
 module Epilog
-  include Ferret
 
-  class Storage
+  class DBStorage
     # Class for dealing with datastores. Handles databases
     # through ActiveRecord, and indexes through Ferret
 
@@ -64,7 +70,7 @@ module Epilog
         puts entry.datetime
     end
 
-    def store_and_index(message, datetime, digest, filename, filestat)
+    def commit(message, datetime, digest, filename, filestat)
       # we pass in the mtime of the file in as the year.
       # there needs to be a better check for working out
       # what the year *actually* is.
