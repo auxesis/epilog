@@ -1,4 +1,4 @@
-No tests yet. I'm a slacker. 
+Not many tests. I'm a slacker. 
 
 Use the logfeeder utils under scripts/ to simulate log outputs, 
 and run the aggregator over the output.
