@@ -14,7 +14,7 @@
 # would like to know more.
 #
 # TODO
-#  - properly check and check what the application environment 
+#  - properly check and check what the application environment - DONE!
 #  - find a better way to determine the year with log 
 #    files that span multiple years
 #  - keep track of the lines within a file that have
@@ -47,123 +47,130 @@ class String
   include Term::ANSIColor
 end
 
-class Storage
-  # Class for dealing with datastores. Handles databases
-  # through ActiveRecord, and indexes through Ferret
+module Epilog
 
-  def initialize
-    # temporary hack for setting the database and index environment
-    @environment = 'development'
-  end
+  class Storage
+    # Class for dealing with datastores. Handles databases
+    # through ActiveRecord, and indexes through Ferret
 
-  def get_database_config(config='database.yml')
-    @db_config = YAML::load(File.open(config))
-  end
+    def initialize(environment)
+      # temporary hack for setting the database and index environment
+      @environment = environment
+    end
 
-  def connect_to_database
-    ActiveRecord::Base.configurations = @db_config
-    ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
-  end
+    def get_database_config(config='database.yml')
+      @db_config = YAML::load(File.open(config))
+    end
 
-  def setup_index(path='index')
-    FileUtils.mkdir_p(path) if not File.exists? path
-    raise "Directory #{path} isn't writable!" if not File.writable? path
+    def connect_to_database
+      ActiveRecord::Base.configurations = @db_config
+      ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[@environment])
+    end
 
-    @index = Index::Index.new(:path => path)
-  end
+    def setup_index(path='index')
+      FileUtils.mkdir_p(path) if not File.exists? path
+      raise "Directory #{path} isn't writable!" if not File.writable? path
 
-  def store(message, datetime, digest, filename)
-    if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
-      puts "Entry #{digest} already exists!".yellow
-    else
-      begin
-        entry = Entry.new("message" => message, 
-                          "datetime" => datetime, 
-                          "digest" => digest, 
-                          "filename" => filename) 
-        entry.save
-        return entry
-      rescue SQLite3::BusyException
-        sleep 2
-        puts 'Database contention! Retrying.'.red
-        retry # risky but doable
+      @index = Index::Index.new(:path => path)
+    end
+
+    def store(message, datetime, digest, filename)
+      if Entry.find(:first, :conditions => [ "digest = ?", digest]) then
+        puts "Entry #{digest} already exists!".yellow
+      else
+        begin
+          entry = Entry.new("message" => message, 
+                            "datetime" => datetime, 
+                            "digest" => digest, 
+                            "filename" => filename) 
+          entry.save
+          return entry
+        rescue SQLite3::BusyException
+          sleep 2
+          puts 'Database contention! Retrying.'.red
+          retry # risky but doable
+        end
       end
     end
+
+    def index(entry)
+        @index << { :message => entry.message, 
+                    :datetime => entry.datetime,
+                    :id => entry.id,
+                    :digest => entry.digest 
+        } # the search in the rails app doesn't work without 
+          # passing in the digest. i'd like to know why!
+        puts entry.message
+        puts entry.datetime
+    end
+
+    def store_and_index(message, datetime, digest, filename, filestat)
+      # we pass in the mtime of the file in as the year.
+      # there needs to be a better check for working out
+      # what the year *actually* is.
+      year = filestat.mtime.year
+      time = rfc3164_to_ruby_datetime(datetime, year)  
+
+      entry = store(message, time, digest, filename)
+
+      index(entry) unless entry.blank?
+
+    end 
+
   end
 
-  def index(entry)
-      @index << { :message => entry.message, 
-                  :datetime => entry.datetime,
-                  :id => entry.id,
-                  :digest => entry.digest 
-      } # the search in the rails app doesn't work without 
-        # passing in the digest. i'd like to know why!
-      puts entry.message
-      puts entry.datetime
-  end
+  class Watcher  
 
-  def store_and_index(message, datetime, digest, filename, filestat)
-    # we pass in the mtime of the file in as the year.
-    # there needs to be a better check for working out
-    # what the year *actually* is though.
-    year = filestat.mtime.year
-    time = rfc3164_to_ruby_datetime(datetime, year)  
+    def initialize(storage)
+      @storage = storage
+    end
 
-    entry = store(message, time, digest, filename)
+    def set_state(stat, contents)
+      @file_stat = stat
+      @file_contents = contents
+    end
 
-    index(entry) unless entry.blank?
+    def watch(filename, interval)
 
-  end 
-end
+      contents = File.open(filename).readlines
+      stat = File.stat(filename)
 
+      set_state(stat, contents)
 
+      while true do 
+        @current_file_stat = File.stat(filename)
 
+        if @file_stat != @current_file_stat then
+          puts "#{filename.split.pop} has changed.".green
 
-def set_state(stat, contents)
-  @file_stat = stat
-  @file_contents = contents
-end
-
-def watch(filename, interval)
-
-  contents = File.open(filename).readlines
-  stat = File.stat(filename)
-
-  set_state(stat, contents)
-
-  while true do 
-    @current_file_stat = File.stat(filename)
-
-    if @file_stat != @current_file_stat then
-      puts "#{filename.split.pop} has changed.".green
-
-      @current_file_contents = File.open(filename).readlines
+          @current_file_contents = File.open(filename).readlines
       
-      # dodgy hack, isn't accurate
-      lines = @current_file_contents - @file_contents 
+          # dodgy hack, isn't accurate
+          lines = @current_file_contents - @file_contents 
 
-      lines.each do |line|
-        datetime = line[0..15]
-        message = line[16..-1]
-        digest = MD5.hexdigest(line)
+          lines.each do |line|
+            datetime = line[0..15]
+            message = line[16..-1]
+            digest = MD5.hexdigest(line)
 
-        @s.store_and_index(message, 
-                           datetime, 
-                           digest, 
-                           filename, # god this is nasty
-                           @current_file_stat
-                          )
-      end
+            @storage.store_and_index(message, datetime, digest, filename, @current_file_stat )
+          end
    
-      set_state(@current_file_stat, @current_file_contents)
+          set_state(@current_file_stat, @current_file_contents)
 
-     else 
-       puts "#{filename.split.pop} hasn't changed.".blue
-     end
+        else 
+           puts "#{filename.split.pop} hasn't changed.".blue
+        end
 
-    sleep interval
-  end
-end
+        sleep interval
+      end
+
+    end #def
+
+  end #class
+
+end #module
+
 
 
 
@@ -176,19 +183,30 @@ end
 
 filename = ARGV[0]
 
-# how horrible
-if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
+# FIXME cludgy
+#if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
+interval = ARGV[1] || 2
+interval = interval.to_i
+# was that really much better?
 
-# temporary hack for setting the database and index environment
-@environment = 'development'
+# set the database and index environment
+if ["development", "production", "testing"].member? ENV["RAILS_ENV"]
+    environment = ENV["RAILS_ENV"]
+else
+    environment = "development"
+end
 
-@s = Storage.new
-@s.get_database_config
-@s.connect_to_database
-@s.setup_index("epilog_rails/index/#{@environment}/entry/")
+RAILS_ROOT = ENV["RAILS_ROOT"] || File.dirname(__FILE__) + '/../rails'
+
+storage = Epilog::Storage.new(environment)
+storage.get_database_config
+storage.connect_to_database
+storage.setup_index("#{RAILS_ROOT}/index/#{environment}/entry/")
+
+watcher = Epilog::Watcher.new(storage)
 
 begin 
-  watch(filename, interval)
+  watcher.watch(filename, interval)
 rescue Interrupt
   puts "Exiting.".magenta
 end
