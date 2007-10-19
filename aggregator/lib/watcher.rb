@@ -1,12 +1,10 @@
 
-require 'active_record'
 require 'yaml'
 require 'md5'
-require 'term/ansicolor'
 require 'fileutils'
 require 'ftools'
-require 'libunixdatetime.rb'
-require 'ferret'
+File.join(File.dirname(__FILE__), '..', 'lib', 'storage')
+File.join(File.dirname(__FILE__), '..', 'lib', 'colours')
 
 module Epilog
 
@@ -19,6 +17,17 @@ module Epilog
     def set_state(stat, contents)
       @file_stat = stat
       @file_contents = contents
+    end
+
+    def commit(lines, filename)
+      # break up each of the lines
+      lines.each do |line|
+        datetime = line[0..15]
+        message = line[16..-1]
+        digest = MD5.hexdigest(line)
+
+        @storage.commit(message, datetime, digest, filename, @current_file_stat)
+      end
     end
 
     def watch(filename, interval)
@@ -36,16 +45,10 @@ module Epilog
 
           @current_file_contents = File.open(filename).readlines
       
-          # dodgy hack, isn't accurate
+          # FIXME this isn't accurate
           lines = @current_file_contents - @file_contents 
 
-          lines.each do |line|
-            datetime = line[0..15]
-            message = line[16..-1]
-            digest = MD5.hexdigest(line)
-
-            @storage.store_and_index(message, datetime, digest, filename, @current_file_stat )
-          end
+          commit(lines, filename)
    
           set_state(@current_file_stat, @current_file_contents)
 
@@ -56,7 +59,7 @@ module Epilog
         sleep interval
       end
 
-    end #def
+    end #method
 
   end #class
 
