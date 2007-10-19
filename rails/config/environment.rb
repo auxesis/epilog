@@ -59,7 +59,7 @@ end
 
 # Include your application configuration below
 
-require 'acts_as_ferret'
+#require 'acts_as_ferret'
 
 module ActionController::Routing
     SEPARATORS = %w( / )
