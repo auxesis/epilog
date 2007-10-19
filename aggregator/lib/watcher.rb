@@ -1,3 +1,10 @@
+#!/usr/bin/env ruby
+#
+#
+# TODO
+#  - keep track of lines better! know where we are in the file
+#    (each_with_index will help)
+#
 
 require 'yaml'
 require 'md5'
@@ -26,7 +33,9 @@ module Epilog
         message = line[16..-1]
         digest = MD5.hexdigest(line)
 
-        @storage.commit(message, datetime, digest, filename, @current_file_stat)
+        data = { :datetime => datetime, :message => message, :digest => digest, :filename => filename }
+
+        @storage.commit(data, @current_file_stat)
       end
     end
 
