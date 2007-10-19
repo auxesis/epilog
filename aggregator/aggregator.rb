@@ -23,34 +23,9 @@
 #    - take md5sum of first line
 
 
-
-
-require 'active_record'
-require 'yaml'
-require 'md5'
-require 'term/ansicolor'
-require 'fileutils'
-require 'ftools'
-require 'libunixdatetime.rb'
-require 'ferret'
-include Ferret
-
+require 'lib/colours'
 require 'lib/storage'
 require 'lib/watcher'
-
-class Entry < ActiveRecord::Base; end
-
-# gimme colour baby!
-class Color
-  class << self
-    include Term::ANSIColor
-  end
-end
-
-class String
-  include Term::ANSIColor
-end
-
 
 # let's begin
 
@@ -59,13 +34,12 @@ if ARGV.length < 1 then
   exit 1
 end
 
+# get the filename
 filename = ARGV[0]
 
-# FIXME cludgy
-#if ARGV[1] then interval = ARGV[1].to_i else interval = 2 end
+# determine the interval
 interval = ARGV[1] || 2
 interval = interval.to_i
-# was that really much better?
 
 # set the database and index environment
 if ["development", "production", "testing"].member? ENV["RAILS_ENV"]
@@ -74,16 +48,21 @@ else
     environment = "development"
 end
 
+# point the index to the right place
 RAILS_ROOT = ENV["RAILS_ROOT"] || File.dirname(__FILE__) + '/../rails'
 
-storage = Epilog::Storage.new(environment)
+# setup storage
+storage = Epilog::DBStorage.new(environment)
 storage.get_database_config
 storage.connect_to_database
 storage.setup_index("#{RAILS_ROOT}/index/#{environment}/entry/")
 
+# setup watcher
 watcher = Epilog::Watcher.new(storage)
 
-begin 
+# FIXME maybe daemonize correctly?
+begin
+  # watch indefinitely
   watcher.watch(filename, interval)
 rescue Interrupt
   puts "Exiting.".magenta
