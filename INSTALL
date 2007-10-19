@@ -1,0 +1,7 @@
+== Rails setup with lighttpd
+
+ * libfcgi-ruby1.8
+ * lighttpd
+ * ruby
+ * rubygems
+ * rails
