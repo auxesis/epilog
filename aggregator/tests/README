@@ -2,3 +2,7 @@ No tests yet. I'm a slacker.
 
 Use the logfeeder utils to simulate log outputs, and run the
 aggregator over the output.
+
+logfeeder.py and .rb are the same. logfeeder.py was written
+to check I wasn't going crazy over some silly stdout flushing 
+bug.
