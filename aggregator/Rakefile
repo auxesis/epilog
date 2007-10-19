@@ -1,0 +1,15 @@
+require 'rake'
+require 'rake/testtask'
+
+task 'default' => ['tests_all']
+
+Rake::TestTask.new('tests_all') do |t| 
+    t.pattern = "test/*.rb"
+    t.warning = true
+end
+
+Rake::TestTask.new('tests_rfc3164') do |t| 
+    t.pattern = "tests/rfc3164.rb"
+    t.warning = true
+end
+
