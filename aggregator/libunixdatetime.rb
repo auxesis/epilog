@@ -5,6 +5,8 @@
 require 'date'
 require 'time'
 
+# helper function to convert an abbreviated month name
+# to a month number
 def human_month_to_number(month)
   month = month.capitalize unless month == nil
   if Date::ABBR_MONTHNAMES.include?(month) then
@@ -14,32 +16,43 @@ def human_month_to_number(month)
   end
 end
 
-def rfc3164_to_ruby_datetime(rfc3164_timestamp, year=Time.now.year) # scary assumption! bloody useless rfc3164
-  split_stamp = rfc3164_timestamp.split
-  
-  month_human = split_stamp[0]
 
+# scary assumption!
+# we guess that the year is the current year unless we're passed it
+# explicitly. bloody useless rfc3164 doesn't require a year to be 
+# specified
+#
+def rfc3164_to_ruby_datetime(rfc3164_timestamp, year=Time.now.year) 
+  
+  rfc3164_timestamp_split = rfc3164_timestamp.split
+  
+  abbreviated_month = rfc3164_timestamp_split[0]
+
+  # convert the abbreviated month to a month number
   begin
-    month = human_month_to_number(month_human)
+    month = human_month_to_number(abbreviated_month)
   rescue RuntimeError
     raise "Please provide a valid rfc3164 timestamp!"
   end
 
-  day = split_stamp[1]
-  timestamp = split_stamp[2]
+  # assign all the bits to names
+  day = rfc3164_timestamp_split[1]
+  timestamp = rfc3164_timestamp_split[2]
   hour = timestamp.split(':')[0]
   min = timestamp.split(':')[1]
   sec = timestamp.split(':')[2]
 
+  # construct the time object
   time = Time.mktime(year, month, day, hour, min, sec)
 
   return time
 end
 
-#timestamp = "Jun 4 06:27:17"
+# example of how to turn a rfc3164 formatted timestamp into
+# a real ruby datetime object.
 
-#time = rfc3164_to_ruby_datetime(timestamp)
-
+#rfc3164_timestamp = "Jun 4 06:27:17"
+#time = rfc3164_to_ruby_datetime(rfc3164_timestamp)
 #puts time
 
 
