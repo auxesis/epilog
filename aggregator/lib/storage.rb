@@ -57,12 +57,14 @@ module Epilog
         puts entry.message
     end
 
-    def commit(data, filestat)
+    def commit(data)
       # we pass in the mtime of the file in as the year.
       # there needs to be a better check for working out
       # what the year *actually* is.
 
-      year = filestat.mtime.year
+      year = data[:stat].mtime.year
+      data.delete(:stat)
+
       ruby_datetime = Epilog::RFC3164.to_ruby_datetime(data[:datetime], year)  
       data[:datetime] = ruby_datetime
 
