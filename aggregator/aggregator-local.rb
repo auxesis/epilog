@@ -14,11 +14,7 @@
 # would like to know more.
 #
 # TODO
-#  - find a better way to determine the year with log files that 
-#    span multiple years
-#  - keep track of the lines within a file that have been indexed
-#    - note line number
-#    - take md5sum of first line and check it often!
+# check $epilog_root/DEVELOPMENT
 
 require 'lib/colours'
 require 'lib/storage'

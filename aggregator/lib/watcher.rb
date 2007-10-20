@@ -2,8 +2,7 @@
 #
 #
 # TODO
-#  - keep track of lines better! know where we are in the file
-#    (each_with_index will help)
+# check $epilog_root/DEVELOPMENT
 #
 
 require 'yaml'
