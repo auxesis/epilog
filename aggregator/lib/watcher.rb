@@ -33,9 +33,13 @@ module Epilog
         message = line[16..-1]
         digest = MD5.hexdigest(line)
 
-        data = { :datetime => datetime, :message => message, :digest => digest, :filename => filename }
+        data = { :datetime => datetime, 
+                 :message => message, 
+                 :digest => digest, 
+                 :filename => filename, 
+                 :stat => @current_file_stat }
 
-        @storage.commit(data, @current_file_stat)
+        @storage.commit(data)
       end
     end
 
