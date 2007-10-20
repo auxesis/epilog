@@ -16,3 +16,19 @@ An interesting storage mechanisms would be something that turns the
 hash into a yaml fragment, and every 10 or so fragments does a http
 POST. This would be the beginnings a remote watcher/central aggregator
 system. 
+
+
+== TODO
+ - properly daemonise the aggregators
+=== watcher
+ - keep track of lines better in the watcher so we know where we are 
+   in the file, and if the file has been overwritten
+    - note line number (each_with_index will help)
+    - take md5sum of first line and check it often!
+ - be more clever about determining the year of the log entry with 
+   log files that span multiple years
+=== filter
+ - check the log format of the line and apply a filter appropriately 
+ - have filters for different log formats (not just rfc3164)
+ - integrate with the watcher
+
