@@ -1,0 +1,18 @@
+
+== Storage backends
+
+Some crafty refactoring has made it really easy to write 
+different storage backends.
+
+A storage backend is used by passing it to the watcher (it's probably
+going to have some settings set before you do this). The watcher will 
+break up lines and pass them as a 'data' object to the storage object 
+with a @storage.commit. 
+
+To write your own storage mechanism, just make sure your class
+has a commit method that accepts a hash. 
+
+An interesting storage mechanisms would be something that turns the
+hash into a yaml fragment, and every 10 or so fragments does a http
+POST. This would be the beginnings a remote watcher/central aggregator
+system. 
