@@ -6,7 +6,7 @@ storage backends.
 
 A storage backend is used by passing it to the watcher (it's probably
 going to have some settings set before you do this). The watcher will 
-break up lines and pass them as a 'data' object to the storage object 
+break up lines and pass them as a 'data' object to the storage backend 
 with a @storage.commit. 
 
 To write your own storage mechanism, just make sure your class has a 
