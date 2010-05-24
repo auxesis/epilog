@@ -1,22 +1,31 @@
-== Epilog
+WARNING
+=======
 
-Epilog is a simple log viewing application written in Ruby on Rails, 
-and a log aggregator written in Ruby. It uses Ferret, a Ruby port of 
-the Apache Lucene indexer and search engine, and the acts_as_ferret 
+THIS IS OLD WEIRD CODE THAT HARMS PUPPIES - FUN TO HAVE A GANDER AT BUT
+OH MY GOD DON'T THINK OF USING THIS IN PRODUCTION.
+
+Epilog
+======
+
+Epilog is a simple log viewing application written in Ruby on Rails,
+and a log aggregator written in Ruby. It uses Ferret, a Ruby port of
+the Apache Lucene indexer and search engine, and the acts_as_ferret
 Rails plugin to provide fast searching  of rfc3164 formatted log files.
 
-Simply put, Epilog makes viewing near real time logs through a web 
-interface quick and easy. 
+Simply put, Epilog makes viewing near real time logs through a web
+interface quick and easy.
 
-== Where stuff is
+Where stuff is
+--------------
 
 The rails viewing bits exist under rails/
 The aggregator code exists under aggregator/
 
 A symlink of the rails databases.yml is made to the aggregator
-directory so database settings are shared. 
+directory so database settings are shared.
 
-== Requirements
+Requirements
+------------
 
 We use a whole bunch of libraries. It's probably a good idea
 to have rubygems installed. Gems (probably) required are:
@@ -27,7 +36,8 @@ to have rubygems installed. Gems (probably) required are:
  - term/ansicolor
  - fileutils
 
-== Usage
+Usage
+-----
 
 For testing and development:
 
@@ -36,17 +46,17 @@ To aggregate and index data locally:
    $ $editor aggregator/database.yml
  - for production usage, set RAILS_ENV to "production"
    $ export RAILS_ENV="production"
- - start the aggregator 
+ - start the aggregator
    $ ruby aggregator/aggregator-local.rb <logfile>
 
 To start the rails app:
  - start webrick/lighttpd, by running
-   $ rails/script/server 
+   $ rails/script/server
 
 To start up the log writing simulator:
- - the logfeeder reads data from an existing logfile, and outputs 
-   lines to stdout at random intervals. this roughly simulates real 
-   mailserver logging behaviour. 
+ - the logfeeder reads data from an existing logfile, and outputs
+   lines to stdout at random intervals. this roughly simulates real
+   mailserver logging behaviour.
  - make sure you have some test data to play with (testdata.log for example)
    $ ruby aggregator/tests/scripts/logfeeder.rb testdata.log > <logfile>
    then point the aggregator at the <logfile>
