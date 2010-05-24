@@ -1,0 +1,6 @@
+.bzr
+.bzrignore
+*.log
+rails/tmp/*
+rails/index/*
+rails/log/*
